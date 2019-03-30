@@ -101,7 +101,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/DAFX/DAFX-前言/" data-id="cjtvndmmz00045of7p1qan2i3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/DAFX/DAFX-前言/" data-id="cjtvoz9fe00053gf71yt0bpbu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DAFX-Chinese/">DAFX Chinese</a></li></ul>
@@ -127,7 +127,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/DAFX/DAFX-1-介绍/">DAFX-1.介绍</a>
+      <a class="article-title" href="/DAFX/DAFX-1-介绍/">DAFX-介绍</a>
     </h1>
   
 
@@ -135,23 +135,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="#DAFX-1.介绍">介绍</a></p>
-<p><span id="DAFX-1.介绍"></span></p>
+        <p>1 介绍<br>    1.1 <a href="#1.1">基于MATLB的数字音频效果-DAFX</a><br>    1.2 <a href="#1.2">数字信号处理的基础</a><br>        1.2.1 数字信号<br>        1.2.2 数字信号的频谱分析<br>        1.2.3 数字系统<br>    1.3 结论<br>    参考书目</p>
+<p><span id="1.1"></span></p>
+<h2 id="1-1-基于MATLAB的数字音效DAFX"><a href="#1-1-基于MATLAB的数字音效DAFX" class="headerlink" title="1.1    基于MATLAB的数字音效DAFX"></a>1.1    基于MATLAB的数字音效DAFX</h2><p>音效处理广泛被应用到声音信号发生，以及包括音乐家用于使用特殊的演奏技术，用于融合了特殊的技术的麦克风收音技术，和用于将音效处理用于生成，录制，制作和发布声音信号。这本书将包含一些对声音或音频效果与它们的传播影响的修改方法。数字音效处理（DAFX）是像是一个软件工具盒子或者说黑匣子，以声音或音频信号作为输出，根据一些声音控制参数进行修改后，把输出信号或声音传递出去（图1.1）.输入和输出信号由扬声器或耳机和某些具象关联信号例如时间信号、信号强度水平或频谱所监控。根据声学标准，那些声音工程师或音乐家设置他们控制参数以达到他们想要的效果。输入和输出信号都以数字格式存在以及以模拟音频信号呈现。输入信号中声音特性的修改是数字音效的主要目的。控制参数的设置通常由声音工程师，音乐家或简单的由听者进行调制，同时设置的机制也可以内嵌到数字音效当中。<br>本书的目的是描述关于以下的数字音效：<br><em>物理和声学效果：我们简述物理背景和物理解释。阐述物理方法和生成音效的设备。</em><br><em>数字音效处理：我们对基础算法给出正式的描述和展示一些实现的例子。</em><br><em>音乐的应用：我们指出一些音乐的应用和在CD或网络上给出声音例子的参考。</em></p>
+<p>在每个效果描述前会先介绍数字音效的物理和声学现象，还会给出一个用于音乐应用的信号处理技术和效果参数控制的解释。<br>在这个解释的章节，我们接下来会解释一些简单的基础数字信号处理。在MATLAB或其他免费的仿真上展示怎么去写音效处理的仿真程序。MATLAB的数字音效处理的实现可以在电脑上实时运行，更强大的是可以实时控制他们的参数。虽然它非常的强大，但是信号处理的编程和特定的音效算法可以在MATLAB上容易的进行，也容易学习上手。</p>
+<p><img src="/DAFX/DAFX-1-介绍/figure_1.1.JPG" alt="图1.1 数字音效和它的控制【Arf99】"></p>
 <p></p>
-<p>1 介绍<br>    1.1 <a href="#1.1">基于MATLB的数字音频效果-DAFX</a><br>    1.2 <a href="#1.2">数字信号处理的基础</a><br>        1.2.1 数字信号<br>        1.2.2 数字信号的频谱分析<br>        1.2.3 数字系统<br>    1.3 结论<br>    参考书目</p>
-<p><span id="1.1"><br>1.1    基于MATLAB的数字音效DAFX    </span></p>
-<p>音效处理广泛被应用到声音信号发生，以及包括音乐家用于使用特殊的演奏技术，用于融合了特殊的技术的麦克风收音技术，和用于将音效处理用于生成，录制，制作和发布声音信号。这本书将包含一些对声音或音频效果与它们的传播影响的修改方法。数字音效处理（DAFX）是像是一个软件工具盒子或者说黑匣子，以声音或音频信号作为输出，根据一些声音控制参数进行修改后，把输出信号或声音传递出去（图1.1）.输入和输出信号由扬声器或耳机和某些具象关联信号例如时间信号、信号强度水平或频谱所监控。根据声学标准，那些声音工程师或音乐家设置他们控制参数以达到他们想要的效果。输入和输出信号都以数字格式存在以及以模拟音频信号呈现。输入信号中声音特性的修改是数字音效的主要目的。控制参数的设置通常由声音工程师，音乐家或简单的由听者进行调制，同时设置的机制也可以内嵌到数字音效当中。<br>本书的目的是描述关于以下的数字音效：</p>
-<p>#物理和声学效果：我们简述物理背景和物理解释。阐述物理方法和生成音效的设备。</p>
-<p>#数字音效处理：我们对基础算法给出正式的描述和展示一些实现的例子。</p>
-<p>#音乐的应用：我们指出一些音乐的应用和在CD或网络上给出声音例子的参考。</p>
-<p>在每个效果描述前会先介绍数字音效的物理和声学现象，还会给出一个用于音乐应用的信号处理技术和效果参数控制的解释。<br>在这个解释的章节，我们接下来会解释一些简单的基础数字信号处理。在MATLAB或其他免费的仿真上展示怎么去写音效处理的仿真程序。MATLAB的数字音效处理的实现可以在电脑上实时运行，更强大的是可以实时控制他们的参数。虽然它非常的强大，但是信号处理的编程和特定的音效算法可以在MATLAB上容易的进行，也容易学习上手。<br></p>
-<p><span id="1.2"><br>1.2 数字信号处理的基础</span></p>
-<p>数字信号处理的基础包括了数字信号（在本书是数字音频信号）的原理和数字系统的原理。数学信号是具有适当数值表示的数字序列。数字系统利用软件算法，根据输入的数字序列来计算输出的数字序列。数字系统的视觉表示利用功能性的对话框或者信号浮动图示。我们将重点地介绍一些简单的基础知识作为开篇的注释，并给读者文献参考，以介绍数字信号处理。<br></p>
+<p><span id="1.2"></span></p>
+<h2 id="1-2-数字信号处理的基础"><a href="#1-2-数字信号处理的基础" class="headerlink" title="1.2 数字信号处理的基础"></a>1.2 数字信号处理的基础</h2><p>数字信号处理的基础包括了数字信号（在本书是数字音频信号）的原理和数字系统的原理。数学信号是具有适当数值表示的数字序列。数字系统利用软件算法，根据输入的数字序列来计算输出的数字序列。数字系统的视觉表示利用功能性的对话框或者信号浮动图示。我们将重点地介绍一些简单的基础知识作为开篇的注释，并给读者文献参考，以介绍数字信号处理。 </p>
+<p><img src="/DAFX/DAFX-1-介绍/figure_1.2.JPG" alt="图1.2 ADC进行采样与量化，数字音效处理和DAC重建音频信号"><br></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/DAFX/DAFX-1-介绍/" data-id="cjtvndmn300065of73n427rzy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/DAFX/DAFX-1-介绍/" data-id="cjtvoz9fg00063gf7kurippjp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DAFX-Chinese/">DAFX Chinese</a></li></ul>
@@ -190,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/Testpost/" data-id="cjtvndmm400025of77u8lyaec" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/Testpost/" data-id="cjtvoz9dc00023gf72id96qr0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -235,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/hello-world/" data-id="cjtvndmm800035of7zn95h3yz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/hello-world/" data-id="cjtvoz9dg00033gf7vn5vomqu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -285,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/DAFX-chinese-translation-start/" data-id="cjtvndmlv00005of7z8ahk6xp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/DAFX-chinese-translation-start/" data-id="cjtvoz9d100003gf7ovylyegy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -344,7 +341,7 @@
           </li>
         
           <li>
-            <a href="/DAFX/DAFX-1-介绍/">DAFX-1.介绍</a>
+            <a href="/DAFX/DAFX-1-介绍/">DAFX-介绍</a>
           </li>
         
           <li>
