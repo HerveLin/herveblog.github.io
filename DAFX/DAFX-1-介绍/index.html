@@ -255,7 +255,14 @@
 <div align="center"><img src="/DAFX/DAFX-1-介绍/figure_1.5.JPG" alt="图1.5 模拟信号与数字信号的频谱"><br>图1.5 模拟信号与数字信号的频谱</div>
 
 <h3 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h3><p>&emsp;&emsp;数字信号的频谱可以通过离散傅里叶变换（DFT）来计算，我们给到式子：</p>
-<p>$$<br>X(k)=DFT[x(n)]=\sum_{n=0}^{N-1}x(n){e^{-j2\pi nk/N}}(k=0,1,…,N-1)<br>\tag{1.1}<br>$$</p>
+
+<p>
+$$
+X(k)=DFT[x(n)]=\sum_{n=0}^{N-1}x(n){e^{-j2\pi nk/N}}(k=0,1,...,N-1)
+\tag{1.1}
+$$
+</p>
+
 <p>&emsp;&emsp;上面的式子有个快速计算的版本叫快速傅里叶变换（FFT）。FFT会在信号x(n)中取N个连续的样本，通过数学计算产生N个采样X(k)的信号频谱。图1.6是对一个16采样数的余弦信号进行16个点的FFT的结果。通过<code>X=abs(fft(x,N))/N</code>对结果进行N的归一化。</p>
 <p>&emsp;&emsp;N个采样X(k)=X<sub>R</sub>(k)+jX<sub>I</sub>(k)是由实部X<sub>R</sub>(k)和虚部X<sub>I</sub>(k)组成的复数，同时我们可以通过以下式子计算它的绝对值，也就可以得到幅频谱：</p>
 <p></p>
