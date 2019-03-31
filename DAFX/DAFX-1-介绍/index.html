@@ -13,9 +13,10 @@
     
 
     
-        <meta name="description" content="1 介绍&amp;emsp;1.1 基于MATLB的数字音频效果-DAFX&amp;emsp;1.2 数字信号处理的基础&amp;emsp;&amp;emsp;1.2.1 数字信号&amp;emsp;&amp;emsp;1.2.2 数字信号的频谱分析&amp;emsp;&amp;emsp;1.2.3 数字系统&amp;emsp;1.3 结论&amp;emsp;参考书目
+        <meta name="description" content="MathJax.Hub.Config({tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]]}});
 
-1.1">
+
+1 介绍&amp;emsp;1.1 基于MATLB的数字音频效果-DAFX&amp;emsp;1.2 数字信号处理的基础&amp;emsp;&amp;emsp;1.2.1 数字信号&amp;">
     
 
     <!--Author-->
@@ -30,9 +31,10 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="1 介绍&amp;emsp;1.1 基于MATLB的数字音频效果-DAFX&amp;emsp;1.2 数字信号处理的基础&amp;emsp;&amp;emsp;1.2.1 数字信号&amp;emsp;&amp;emsp;1.2.2 数字信号的频谱分析&amp;emsp;&amp;emsp;1.2.3 数字系统&amp;emsp;1.3 结论&amp;emsp;参考书目
+        <meta property="og:description" content="MathJax.Hub.Config({tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]]}});
 
-1.1">
+
+1 介绍&amp;emsp;1.1 基于MATLB的数字音频效果-DAFX&amp;emsp;1.2 数字信号处理的基础&amp;emsp;&amp;emsp;1.2.1 数字信号&amp;">
     
 
     <!--Open Graph Site Name-->
@@ -211,7 +213,14 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>1 介绍<br>&emsp;1.1 <a href="#1.1">基于MATLB的数字音频效果-DAFX</a><br>&emsp;1.2 <a href="#1.2">数字信号处理的基础</a><br>&emsp;&emsp;1.2.1 数字信号<br>&emsp;&emsp;1.2.2 数字信号的频谱分析<br>&emsp;&emsp;1.2.3 数字系统<br>&emsp;1.3 结论<br>&emsp;参考书目</p>
+                
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+<p>1 介绍<br>&emsp;1.1 <a href="#1.1">基于MATLB的数字音频效果-DAFX</a><br>&emsp;1.2 <a href="#1.2">数字信号处理的基础</a><br>&emsp;&emsp;1.2.1 <a href="#1.2.1">数字信号</a><br>&emsp;&emsp;1.2.2 <a href="#1.2.2">数字信号的频谱分析</a><br>&emsp;&emsp;1.2.3 数字系统<br>&emsp;1.3 结论<br>&emsp;参考书目</p>
 <p><span id="1.1"></span></p>
 <h2 id="1-1-基于MATLAB的数字音效DAFX"><a href="#1-1-基于MATLAB的数字音效DAFX" class="headerlink" title="1.1 基于MATLAB的数字音效DAFX"></a>1.1 基于MATLAB的数字音效DAFX</h2><p>&emsp;&emsp;音效处理广泛被应用到声音信号发生，以及包括音乐家用于使用特殊的演奏技术，用于融合了特殊的技术的麦克风收音技术，和用于将音效处理用于生成，录制，制作和发布声音信号。这本书将包含一些对声音或音频效果与它们的传播影响的修改方法。数字音效处理（DAFX）是像是一个软件工具盒子或者说黑匣子，以声音或音频信号作为输出，根据一些声音控制参数进行修改后，把输出信号或声音传递出去（图1.1）.输入和输出信号由扬声器或耳机和某些具象关联信号例如时间信号、信号强度水平或频谱所监控。根据声学标准，那些声音工程师或音乐家设置他们控制参数以达到他们想要的效果。输入和输出信号都以数字格式存在以及以模拟音频信号呈现。输入信号中声音特性的修改是数字音效的主要目的。控制参数的设置通常由声音工程师，音乐家或简单的由听者进行调制，同时设置的机制也可以内嵌到数字音效当中。<br>&emsp;&emsp;本书的目的是描述关于以下的数字音效：</p>
 <ul>
@@ -242,19 +251,13 @@
 <h4 id="M-file-1-3-sbs-alg-m"><a href="#M-file-1-3-sbs-alg-m" class="headerlink" title="M-file 1.3 (sbs_alg.m)"></a>M-file 1.3 (sbs_alg.m)</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Read input sound file into vector x(n) and sampling frequency FS</span></span><br><span class="line">[x,FS]=wavread(<span class="string">'input filename'</span>);</span><br><span class="line"><span class="comment">% Sample-by sample algorithm y(n)=a*x(n)</span></span><br><span class="line"><span class="keyword">for</span> n=<span class="number">1</span>:<span class="built_in">length</span>(x),</span><br><span class="line">y(n)=a * x(n); </span><br><span class="line"><span class="keyword">end</span>; </span><br><span class="line"><span class="comment">% Write y(n) into output sound file with number of </span></span><br><span class="line"><span class="comment">% bits Nbits and sampling frequency FS </span></span><br><span class="line">wavwrite(y,FS,Nbits,<span class="string">'output filename'</span>);</span><br></pre></td></tr></table></figure>
 <p></p>
 <p><span id="1.2.2"></span></p>
-<h2 id="1-2-1-数字信号的频谱分析"><a href="#1-2-1-数字信号的频谱分析" class="headerlink" title="1.2.1 数字信号的频谱分析"></a>1.2.1 数字信号的频谱分析</h2><p>&emsp;&emsp;一个信号的频谱表示了在频域范围内，这个信号的能量分布。图1.5的上半部分展示了模拟音频信号的短时频谱。信号频率的上限是20kHz。对应的数字信号是通过采样与量化fs=40kHz的模拟信号的得到的。相对应的短时数字信号频谱在图1.5的下半部分展示。采样操作决定了得到什么样的模拟信号基带频谱【Orf96】。在数学信号的频谱中，模拟信号的0Hz到20Hz这时也包含在了40kHz到60kHz的范围，它的折叠版本（镜像）出现在40kHz到20kHz。在40kHz的基带频谱的第一个图像也会出现在fs=40kHz的整数倍数的频率处。但是请注意数字信号的0kHz到20kHz的频谱是准确对应模拟信号的。通过简单的给数字信号进行低通滤波，滤掉高于fs/2=20kHz的频率，从而利用数字信号重建模拟信号。在图1.5下方的数字信号频谱中，我们把高于20kHz的频谱给去掉，会得到上面的模拟信号频谱。</p>
+<h2 id="1-2-2-数字信号的频谱分析"><a href="#1-2-2-数字信号的频谱分析" class="headerlink" title="1.2.2 数字信号的频谱分析"></a>1.2.2 数字信号的频谱分析</h2><p>&emsp;&emsp;一个信号的频谱表示了在频域范围内，这个信号的能量分布。图1.5的上半部分展示了模拟音频信号的短时频谱。信号频率的上限是20kHz。对应的数字信号是通过采样与量化fs=40kHz的模拟信号的得到的。相对应的短时数字信号频谱在图1.5的下半部分展示。采样操作决定了得到什么样的模拟信号基带频谱【Orf96】。在数学信号的频谱中，模拟信号的0Hz到20Hz这时也包含在了40kHz到60kHz的范围，它的折叠版本（镜像）出现在40kHz到20kHz。在40kHz的基带频谱的第一个图像也会出现在fs=40kHz的整数倍数的频率处。但是请注意数字信号的0kHz到20kHz的频谱是准确对应模拟信号的。通过简单的给数字信号进行低通滤波，滤掉高于fs/2=20kHz的频率，从而利用数字信号重建模拟信号。在图1.5下方的数字信号频谱中，我们把高于20kHz的频谱给去掉，会得到上面的模拟信号频谱。</p>
 <div align="center"><img src="/DAFX/DAFX-1-介绍/figure_1.5.JPG" alt="图1.5 模拟信号与数字信号的频谱"><br>图1.5 模拟信号与数字信号的频谱</div>
 
-<h3 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h3><p>&emsp;数字信号的频谱可以通过离散傅里叶变换（DFT）来计算，我们给到式子：</p>
-<p>$$<br>X(k)=DFT\left[<br>         x\left(<br>         n\right)<br>        \right]<br>    =\sum_{<br>      n=0}^{<br>      N-1} {<br>       x\left(<br>        n\right){e^{-j2\pink\N/}}<br>        } k=0,1,…,N-1</p>
-<p>\tag{1.1}<br>$$</p>
-<p>$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$<br>\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\)</p>
-<p><img src="http://www.forkosh.com/mathtex.cgi? \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}"></p>
-<p><img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" style="border:none;"></p>
-<p>$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$</p>
-<p><img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large X(k)=DFT[x(n)]=\sum{n=0}^{N-1} x(n)e^(-j2\pink\/N)" style="border:none;"></p>
-<p> $$<br>f(n)=\begin{cases}<br>n/2, &amp; \text{如果$ x&lt;=2 $}\<br>3n+1, &amp; \text{如果$ x&gt;2 $}<br>\end{cases}<br>$$</p>
-<p>$$R_{m \times n}$$</p>
+<h3 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h3><p>&emsp;&emsp;数字信号的频谱可以通过离散傅里叶变换（DFT）来计算，我们给到式子：</p>
+<p>$$<br>X(k)=DFT[x(n)]=\sum_{n=0}^{N-1}x(n){e^{-j2\pi nk/N}}(k=0,1,…,N-1)<br>\tag{1.1}<br>$$</p>
+<p>&emsp;&emsp;上面的式子有个快速计算的版本叫快速傅里叶变换（FFT）。FFT会在信号x(n)中取N个连续的样本，通过数学计算产生N个采样X(k)的信号频谱。图1.6是对一个16采样数的余弦信号进行16个点的FFT的结果。通过<code>X=abs(fft(x,N))/N</code>对结果进行N的归一化。</p>
+<p>&emsp;&emsp;N个采样X(k)=X<sub>R</sub>(k)+jX<sub>I</sub>(k)$是由实部X<sub>R</sub>(k)和虚部X<sub>I</sub>(k)组成的复数，同时我们可以通过以下式子计算它的绝对值，也就可以得到幅频谱：</p>
 <p></p>
 
 
