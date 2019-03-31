@@ -4,7 +4,7 @@
 <!-- Head tag -->
 <head><meta name="generator" content="Hexo 3.8.0">
 
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,9 +13,9 @@
     
 
     
-        <meta name="description" content="1 介绍    1.1 基于MATLB的数字音频效果-DAFX    1.2 数字信号处理的基础        1.2.1 数字信号        1.2.2 数字信号的频谱分析        1.2.3 数字系统    1.3 结论    参考书目
+        <meta name="description" content="1 介绍&amp;emsp;1.1 基于MATLB的数字音频效果-DAFX&amp;emsp;1.2 数字信号处理的基础&amp;emsp;&amp;emsp;1.2.1 数字信号&amp;emsp;&amp;emsp;1.2.2 数字信号的频谱分析&amp;emsp;&amp;emsp;1.2.3 数字系统&amp;emsp;1.3 结论&amp;emsp;参考书目
 
-1.1    基于MATLAB的数字音效DAF">
+1.1">
     
 
     <!--Author-->
@@ -30,9 +30,9 @@
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="1 介绍    1.1 基于MATLB的数字音频效果-DAFX    1.2 数字信号处理的基础        1.2.1 数字信号        1.2.2 数字信号的频谱分析        1.2.3 数字系统    1.3 结论    参考书目
+        <meta property="og:description" content="1 介绍&amp;emsp;1.1 基于MATLB的数字音频效果-DAFX&amp;emsp;1.2 数字信号处理的基础&amp;emsp;&amp;emsp;1.2.1 数字信号&amp;emsp;&amp;emsp;1.2.2 数字信号的频谱分析&amp;emsp;&amp;emsp;1.2.3 数字系统&amp;emsp;1.3 结论&amp;emsp;参考书目
 
-1.1    基于MATLAB的数字音效DAF">
+1.1">
     
 
     <!--Open Graph Site Name-->
@@ -86,7 +86,7 @@
     
 
 
-    <!-- favicon -->
+    <!-- favicon --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
@@ -94,7 +94,7 @@
 
 <body>
 
-    <!-- Menu -->
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
     <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
@@ -211,15 +211,51 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>1 介绍<br>    1.1 <a href="#1.1">基于MATLB的数字音频效果-DAFX</a><br>    1.2 <a href="#1.2">数字信号处理的基础</a><br>        1.2.1 数字信号<br>        1.2.2 数字信号的频谱分析<br>        1.2.3 数字系统<br>    1.3 结论<br>    参考书目</p>
+                <p>1 介绍<br>&emsp;1.1 <a href="#1.1">基于MATLB的数字音频效果-DAFX</a><br>&emsp;1.2 <a href="#1.2">数字信号处理的基础</a><br>&emsp;&emsp;1.2.1 数字信号<br>&emsp;&emsp;1.2.2 数字信号的频谱分析<br>&emsp;&emsp;1.2.3 数字系统<br>&emsp;1.3 结论<br>&emsp;参考书目</p>
 <p><span id="1.1"></span></p>
-<h2 id="1-1-基于MATLAB的数字音效DAFX"><a href="#1-1-基于MATLAB的数字音效DAFX" class="headerlink" title="1.1    基于MATLAB的数字音效DAFX"></a>1.1    基于MATLAB的数字音效DAFX</h2><p>音效处理广泛被应用到声音信号发生，以及包括音乐家用于使用特殊的演奏技术，用于融合了特殊的技术的麦克风收音技术，和用于将音效处理用于生成，录制，制作和发布声音信号。这本书将包含一些对声音或音频效果与它们的传播影响的修改方法。数字音效处理（DAFX）是像是一个软件工具盒子或者说黑匣子，以声音或音频信号作为输出，根据一些声音控制参数进行修改后，把输出信号或声音传递出去（图1.1）.输入和输出信号由扬声器或耳机和某些具象关联信号例如时间信号、信号强度水平或频谱所监控。根据声学标准，那些声音工程师或音乐家设置他们控制参数以达到他们想要的效果。输入和输出信号都以数字格式存在以及以模拟音频信号呈现。输入信号中声音特性的修改是数字音效的主要目的。控制参数的设置通常由声音工程师，音乐家或简单的由听者进行调制，同时设置的机制也可以内嵌到数字音效当中。<br>本书的目的是描述关于以下的数字音效：<br><em>物理和声学效果：我们简述物理背景和物理解释。阐述物理方法和生成音效的设备。</em><br><em>数字音效处理：我们对基础算法给出正式的描述和展示一些实现的例子。</em><br><em>音乐的应用：我们指出一些音乐的应用和在CD或网络上给出声音例子的参考。</em></p>
-<p>在每个效果描述前会先介绍数字音效的物理和声学现象，还会给出一个用于音乐应用的信号处理技术和效果参数控制的解释。<br>在这个解释的章节，我们接下来会解释一些简单的基础数字信号处理。在MATLAB或其他免费的仿真上展示怎么去写音效处理的仿真程序。MATLAB的数字音效处理的实现可以在电脑上实时运行，更强大的是可以实时控制他们的参数。虽然它非常的强大，但是信号处理的编程和特定的音效算法可以在MATLAB上容易的进行，也容易学习上手。</p>
-<p><img src="/DAFX/DAFX-1-介绍/figure_1.1.JPG" alt="图1.1 数字音效和它的控制【Arf99】"></p>
+<h2 id="1-1-基于MATLAB的数字音效DAFX"><a href="#1-1-基于MATLAB的数字音效DAFX" class="headerlink" title="1.1 基于MATLAB的数字音效DAFX"></a>1.1 基于MATLAB的数字音效DAFX</h2><p>&emsp;&emsp;音效处理广泛被应用到声音信号发生，以及包括音乐家用于使用特殊的演奏技术，用于融合了特殊的技术的麦克风收音技术，和用于将音效处理用于生成，录制，制作和发布声音信号。这本书将包含一些对声音或音频效果与它们的传播影响的修改方法。数字音效处理（DAFX）是像是一个软件工具盒子或者说黑匣子，以声音或音频信号作为输出，根据一些声音控制参数进行修改后，把输出信号或声音传递出去（图1.1）.输入和输出信号由扬声器或耳机和某些具象关联信号例如时间信号、信号强度水平或频谱所监控。根据声学标准，那些声音工程师或音乐家设置他们控制参数以达到他们想要的效果。输入和输出信号都以数字格式存在以及以模拟音频信号呈现。输入信号中声音特性的修改是数字音效的主要目的。控制参数的设置通常由声音工程师，音乐家或简单的由听者进行调制，同时设置的机制也可以内嵌到数字音效当中。<br>&emsp;&emsp;本书的目的是描述关于以下的数字音效：</p>
+<ul>
+<li>物理和声学效果：我们简述物理背景和物理解释。阐述物理方法和生成音效的设备。</li>
+<li>数字音效处理：我们对基础算法给出正式的描述和展示一些实现的例子。</li>
+<li>音乐的应用：我们指出一些音乐的应用和在CD或网络上给出声音例子的参考。</li>
+</ul>
+<p>&emsp;&emsp;在每个效果描述前会先介绍数字音效的物理和声学现象，还会给出一个用于音乐应用的信号处理技术和效果参数控制的解释。<br>在这个解释的章节，我们接下来会解释一些简单的基础数字信号处理。在MATLAB或其他免费的仿真上展示怎么去写音效处理的仿真程序。MATLAB的数字音效处理的实现可以在电脑上实时运行，更强大的是可以实时控制他们的参数。虽然它非常的强大，但是信号处理的编程和特定的音效算法可以在MATLAB上容易的进行，也容易学习上手。</p>
+<div align="center"><img src="/DAFX/DAFX-1-介绍/figure_1.1.JPG" alt="图1.1 数字音效和它的控制【Arf99】"><br>图1.1 数字音效和它的控制【Arf99】</div>
+
 <p></p>
 <p><span id="1.2"></span></p>
-<h2 id="1-2-数字信号处理的基础"><a href="#1-2-数字信号处理的基础" class="headerlink" title="1.2 数字信号处理的基础"></a>1.2 数字信号处理的基础</h2><p>数字信号处理的基础包括了数字信号（在本书是数字音频信号）的原理和数字系统的原理。数学信号是具有适当数值表示的数字序列。数字系统利用软件算法，根据输入的数字序列来计算输出的数字序列。数字系统的视觉表示利用功能性的对话框或者信号浮动图示。我们将重点地介绍一些简单的基础知识作为开篇的注释，并给读者文献参考，以介绍数字信号处理。 </p>
-<p><img src="/DAFX/DAFX-1-介绍/figure_1.2.JPG" alt="图1.2 ADC进行采样与量化，数字音效处理和DAC重建音频信号"><br></p>
+<h2 id="1-2-数字信号处理的基础"><a href="#1-2-数字信号处理的基础" class="headerlink" title="1.2 数字信号处理的基础"></a>1.2 数字信号处理的基础</h2><p>&emsp;&emsp;数字信号处理的基础包括了数字信号（在本书是数字音频信号）的原理和数字系统的原理。数学信号是具有适当数值表示的数字序列。数字系统利用软件算法，根据输入的数字序列来计算输出的数字序列。数字系统的视觉表示利用功能性的对话框或者信号浮动图示。我们将重点地介绍一些简单的基础知识作为开篇的注释，并给读者文献参考，以介绍数字信号处理。 </p>
+<div align="center"><img src="/DAFX/DAFX-1-介绍/figure_1.2.JPG" alt="图1.2 ADC进行采样与量化，数字音效处理和DAC重建音频信号"><br>图1.2 ADC进行采样与量化，数字音效处理和DAC重建音频信号</div>
+
+<p></p>
+<p><span id="1.2.1"></span></p>
+<h2 id="1-2-1-数字信号处理的基础"><a href="#1-2-1-数字信号处理的基础" class="headerlink" title="1.2.1 数字信号处理的基础"></a>1.2.1 数字信号处理的基础</h2><p>&emsp;&emsp;数字信号通过模拟数字转换器ADC将模拟的信号转为一个数字序列。ADC对在一个等距水平时间轴网格上的模拟信号x(t)的幅度进行采样，并量化幅度数值得到固定在垂直网格上的数字集x(n)。（图1.2）.这些采样点显示为以带一个顶点的垂直线。模拟信号x(t)在连续的时间t上（单位usec）表示信号幅度。回到ADC，数字（离散的时间和量化的幅度）信号由采样x(n)序列（流），以数字在离散的指数n上表示。两 个连续的采样时间距离称为采样间隔T（采样周期），它的倒数是采样频率fs=1/T（采样率）。采样频率反映了每秒内的采样数量，单位是赫兹（Hz）。根据采样定理，要完全采样模拟信号，必须以它的的最高频率fmax（信号带宽）的两倍以上进行采样，也就是fs&gt;2•fmax。如果我们强制使用一个固定的采样频率fs，我们就得确保我们采样的输入频率的带宽符合fmax=fs/2。否则，我们就需要一个低通滤波器把fmax以外的频率滤除。接着数字信号进入DAFX盒（数字系统），对每个采样简单的乘以0.5并传递为输出信号：y(n)=0.5•x(n)。紧接着信号y(n)往前j纳入数字模拟转换器DAC，重建模拟信号y(t)。输出信号y(t)的幅值是输入信号x(t)的一般。下面的M-file 1.1是图1.2的一个例子。</p>
+<h4 id="M-file-1-1-figure1-02-m"><a href="#M-file-1-1-figure1-02-m" class="headerlink" title="M-file 1.1 (figure1_02.m)"></a>M-file 1.1 (figure1_02.m)</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">subplot(<span class="number">2</span>,<span class="number">4</span>,<span class="number">1</span>);</span><br><span class="line"><span class="built_in">plot</span>((<span class="number">0</span>:<span class="number">96</span>) *<span class="number">5</span>,y(<span class="built_in">i</span>:<span class="number">97</span>));</span><br><span class="line">title(<span class="string">'x(t)'</span>);</span><br><span class="line">axis([O <span class="number">500</span> <span class="number">-0.05</span> <span class="number">0.05</span>]);</span><br><span class="line">xlabel(<span class="string">'t in \musec \rightarrow'</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">4</span>,<span class="number">2</span>);</span><br><span class="line">stem((<span class="number">0</span>:<span class="number">24</span>),u1(<span class="number">1</span>:<span class="number">25</span>),<span class="string">'.'</span>);axis([O <span class="number">25</span> <span class="number">-0.05</span> <span class="number">0.05</span>]); xlabel(<span class="string">'n \rightarrow'</span>);</span><br><span class="line">title(<span class="string">'x(n)'</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>);</span><br><span class="line">stem((<span class="number">0</span>:<span class="number">24</span>),<span class="number">0.5</span>*u1(<span class="number">1</span>:<span class="number">25</span>),<span class="string">'.'</span>);axis([O <span class="number">25</span> <span class="number">-0.05</span> <span class="number">0.05</span>]); xlabel (<span class="string">'n \right arrow'</span>) ;</span><br><span class="line">title(<span class="string">'y(n)'</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">4</span>,<span class="number">4</span>);</span><br><span class="line"><span class="built_in">plot</span>((<span class="number">0</span>:<span class="number">96</span>)*<span class="number">5</span>,<span class="number">0.5</span>*y(<span class="number">1</span>:<span class="number">97</span>)) ;axis([O <span class="number">500</span> <span class="number">-0.05</span> <span class="number">0.05</span>]); xlabel(<span class="string">'t in \mu sec \rightarrow'</span>);</span><br><span class="line">title(<span class="string">'y(t)'</span>);</span><br></pre></td></tr></table></figure>
+<div align="center"><img src="/DAFX/DAFX-1-介绍/figure_1.3.JPG" alt="图1.3 不同时间段的数字音频信号"><br>图1.3 不同时间段的数字音频信号</div>
+
+<p>&emsp;&emsp;图1.3展示了一些数字信号的图像（看M-file 1.2）。最上面的部分是8000个采样，中间部分是前1000个采样，下面是前100个采样。只有样本数足够少，才会用线点图显示数字信号。</p>
+<h4 id="M-file-1-2-figure1-03-m"><a href="#M-file-1-2-figure1-03-m" class="headerlink" title="M-file 1.2 (figure1_03.m)"></a>M-file 1.2 (figure1_03.m)</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[ul,FS,NBITS]=wavread(<span class="string">'ton2. wav'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span>(!) </span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>); </span><br><span class="line"><span class="built_in">plot</span> (<span class="number">0</span>: <span class="number">7999</span>, ul (<span class="number">1</span>: <span class="number">8000</span>)) ;ylabel (<span class="string">'x(n)'</span>); </span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>); </span><br><span class="line"><span class="built_in">plot</span> (<span class="number">0</span>:<span class="number">999</span>, ul (<span class="number">1</span>: <span class="number">1000</span>)) ;ylabel(<span class="string">'x(n)'</span>); </span><br><span class="line">subplot(<span class="number">3</span>,<span class="number">1</span>,<span class="number">3</span>); </span><br><span class="line">stem(<span class="number">0</span>:<span class="number">99</span>,ui(l:<span class="number">100</span>),<span class="string">'.'</span>);ylabel(<span class="string">'x(n)'</span>); </span><br><span class="line">xlabel(<span class="string">'n \rightarrow'</span>);</span><br></pre></td></tr></table></figure>
+<div align="center"><img src="/DAFX/DAFX-1-介绍/figure_1.4.JPG" alt="图1.4 数字音频信号的垂直与水平尺度格式"><br>图1.4 数字音频信号的垂直与水平尺度格式</div>
+
+<p>&emsp;&emsp;图1.4展示了数字音频信号两个不同的垂直尺度格式。幅度量化的的量程固定在-32768到32767，这是由16位宽的ADC决定的，216可以表示范围-215到215-1。通常w位宽的数字范围是-2w-1到2w-1。如果我们把所有的整数值除于最大的绝对值，例如32768，我们会得到图1.4中垂直的归一化尺度，范围是-1到1-Q。Q是量化步长，可以由式子Q=2-(w-1)计算，当w=16，Q=3.0158e-005。图1.4也展示了水平尺度格式，一般常见的分别是连续时间轴，离散时间轴和归一化离散时间轴。在这样的狭窄描述下，我们可以定义采样一个模拟信号和量化幅度为固定值的数字信号为离散时间和离散幅度信号。数学信号又一系列数值x(n)表示。模拟信号通过DAC重建。更多关于ADC和DAC以他们的相关理论可以在各种文献找到。上面的简短介绍对于我们的讨论已经足够。</p>
+<p>&emsp;&emsp;信号处理算法通常以块处理（block processing）或抽样处理（sample-by-sample）的方式处理信号。相关数字音效的例子在文献【Arf98】可以找到。对于块处理，数据被挪到缓存中，接着每次处理，缓存会被新的数据填满。像是频谱计算的快速傅里叶变换（FFTs）和快速卷积的例子中，每个输入样本的处理是基于抽样处理。<br>这个通过常数a给声音x(n)（图1.2）加权的基础算法（M-file 1.3）描述了一个抽样处理过程。输入信号又一个向量x(0)，x(1)，••••••，x(length(x)-1)表示。</p>
+<h4 id="M-file-1-3-sbs-alg-m"><a href="#M-file-1-3-sbs-alg-m" class="headerlink" title="M-file 1.3 (sbs_alg.m)"></a>M-file 1.3 (sbs_alg.m)</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% Read input sound file into vector x(n) and sampling frequency FS</span></span><br><span class="line">[x,FS]=wavread(<span class="string">'input filename'</span>);</span><br><span class="line"><span class="comment">% Sample-by sample algorithm y(n)=a*x(n)</span></span><br><span class="line"><span class="keyword">for</span> n=<span class="number">1</span>:<span class="built_in">length</span>(x),</span><br><span class="line">y(n)=a * x(n); </span><br><span class="line"><span class="keyword">end</span>; </span><br><span class="line"><span class="comment">% Write y(n) into output sound file with number of </span></span><br><span class="line"><span class="comment">% bits Nbits and sampling frequency FS </span></span><br><span class="line">wavwrite(y,FS,Nbits,<span class="string">'output filename'</span>);</span><br></pre></td></tr></table></figure>
+<p></p>
+<p><span id="1.2.2"></span></p>
+<h2 id="1-2-1-数字信号的频谱分析"><a href="#1-2-1-数字信号的频谱分析" class="headerlink" title="1.2.1 数字信号的频谱分析"></a>1.2.1 数字信号的频谱分析</h2><p>&emsp;&emsp;一个信号的频谱表示了在频域范围内，这个信号的能量分布。图1.5的上半部分展示了模拟音频信号的短时频谱。信号频率的上限是20kHz。对应的数字信号是通过采样与量化fs=40kHz的模拟信号的得到的。相对应的短时数字信号频谱在图1.5的下半部分展示。采样操作决定了得到什么样的模拟信号基带频谱【Orf96】。在数学信号的频谱中，模拟信号的0Hz到20Hz这时也包含在了40kHz到60kHz的范围，它的折叠版本（镜像）出现在40kHz到20kHz。在40kHz的基带频谱的第一个图像也会出现在fs=40kHz的整数倍数的频率处。但是请注意数字信号的0kHz到20kHz的频谱是准确对应模拟信号的。通过简单的给数字信号进行低通滤波，滤掉高于fs/2=20kHz的频率，从而利用数字信号重建模拟信号。在图1.5下方的数字信号频谱中，我们把高于20kHz的频谱给去掉，会得到上面的模拟信号频谱。</p>
+<div align="center"><img src="/DAFX/DAFX-1-介绍/figure_1.5.JPG" alt="图1.5 模拟信号与数字信号的频谱"><br>图1.5 模拟信号与数字信号的频谱</div>
+
+<h3 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h3><p>&emsp;数字信号的频谱可以通过离散傅里叶变换（DFT）来计算，我们给到式子：</p>
+<p>$$<br>X(k)=DFT\left[<br>         x\left(<br>         n\right)<br>        \right]<br>    =\sum_{<br>      n=0}^{<br>      N-1} {<br>       x\left(<br>        n\right){e^{-j2\pink\N/}}<br>        } k=0,1,…,N-1</p>
+<p>\tag{1.1}<br>$$</p>
+<p>$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$<br>\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\)</p>
+<p><img src="http://www.forkosh.com/mathtex.cgi? \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}"></p>
+<p><img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" style="border:none;"></p>
+<p>$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$</p>
+<p><img src="http://chart.googleapis.com/chart?cht=tx&chl=\Large X(k)=DFT[x(n)]=\sum{n=0}^{N-1} x(n)e^(-j2\pink\/N)" style="border:none;"></p>
+<p> $$<br>f(n)=\begin{cases}<br>n/2, &amp; \text{如果$ x&lt;=2 $}\<br>3n+1, &amp; \text{如果$ x&gt;2 $}<br>\end{cases}<br>$$</p>
+<p>$$R_{m \times n}$$</p>
+<p></p>
 
 
                 
@@ -287,7 +323,24 @@
 <!-- Gallery -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Disqus Comments -->
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
