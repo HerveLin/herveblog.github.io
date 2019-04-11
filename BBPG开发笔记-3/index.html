@@ -13,6 +13,10 @@
     
 
     
+        <meta name="description" content="2017.2.3&amp;emsp;&amp;emsp;由于防拆中断和防剪中断选用的奇葩io口，在开机初始化从flash读code时，表带不能查着。
+2017.2.4&amp;emsp;&amp;emsp;睡眠检测-&amp;gt;降低发射频率-&amp;gt;比如以后要监控犯人身体监控，要周期性发送数据    
+2017.2.9&amp;emsp;&amp;e">
+    
 
     <!--Author-->
     
@@ -21,10 +25,14 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Herve&#39;s blog">
+        <meta property="og:title" content="BBPG开发笔记(3)">
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="2017.2.3&amp;emsp;&amp;emsp;由于防拆中断和防剪中断选用的奇葩io口，在开机初始化从flash读code时，表带不能查着。
+2017.2.4&amp;emsp;&amp;emsp;睡眠检测-&amp;gt;降低发射频率-&amp;gt;比如以后要监控犯人身体监控，要周期性发送数据    
+2017.2.9&amp;emsp;&amp;e">
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +40,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -51,7 +59,7 @@
 
     <!-- Title -->
     
-    <title>Archives - Herve&#39;s blog</title>
+    <title>BBPG开发笔记(3) - Herve&#39;s blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -153,153 +161,64 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archives</h1>
+                <div class="post-heading">
+                    <h1>BBPG开发笔记(3)</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-02-03
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/关于IMU解算的一个贴士/">
-        <h1 class="post-title archive">
-            关于IMU解算的一个贴士
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-04-10
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="2017-2-3"><a href="#2017-2-3" class="headerlink" title="2017.2.3"></a>2017.2.3</h3><p>&emsp;&emsp;由于防拆中断和防剪中断选用的奇葩io口，在开机初始化从flash读code时，表带不能查着。</p>
+<h3 id="2017-2-4"><a href="#2017-2-4" class="headerlink" title="2017.2.4"></a>2017.2.4</h3><p>&emsp;&emsp;睡眠检测-&gt;降低发射频率-&gt;比如以后要监控犯人身体监控，要周期性发送数据    </p>
+<h3 id="2017-2-9"><a href="#2017-2-9" class="headerlink" title="2017.2.9"></a>2017.2.9</h3><p>&emsp;&emsp;今天遇到了一个bug，关于破拆报警，这个timer跑一段时间后会抛出RESET_MEM_ALLOC_FAIL的异常，后来发现没连接的时候才会异常，后来req的创建（KE_MSG_ALLOC_DYN）也放进是否连接的判断里，保证req创建了一定能被消化掉。也就是每次send message都需要alloc，而且alloc后一定要send不能不管，不然出事。</p>
+<p>&emsp;&emsp;WAKE UP的时候断开连接没警示</p>
+<h3 id="2017-2-25"><a href="#2017-2-25" class="headerlink" title="2017.2.25"></a>2017.2.25</h3><p>&emsp;&emsp;有时会断开连接，不知道是哪边问题，手环可以正常使用，回复连接，但是oled的显示会镜像颠倒。</p>
+<p>&emsp;&emsp;原因找到了，有时候震动马达会晃到某个位置，金属外壳使PCB背面短路，出现异常。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/无人机的油门修正/">
-        <h1 class="post-title archive">
-            无人机的油门修正
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-04-10
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/记一次STM32在USB透传下的BUG/">
-        <h1 class="post-title archive">
-            记一次STM32在USB透传下的BUG
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-04-10
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/DAFX/DAFX-前言/">
-        <h1 class="post-title archive">
-            DAFX-前言
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-03-30
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/DAFX/DAFX-1-介绍/">
-        <h1 class="post-title archive">
-            DAFX-介绍
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-03-30
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/DAFX 翻译工作开始/">
-        <h1 class="post-title archive">
-            DAFX 翻译工作开始
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-11-30
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/BBPG开发笔记-3/">
-        <h1 class="post-title archive">
-            BBPG开发笔记(3)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-02-03
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/BBPG开发笔记-2/">
-        <h1 class="post-title archive">
-            BBPG开发笔记(2)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-01-02
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/BBPG开发笔记-1/">
-        <h1 class="post-title archive">
-            BBPG开发笔记(1)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2016-12-20
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr>

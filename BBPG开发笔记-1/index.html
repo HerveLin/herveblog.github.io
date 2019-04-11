@@ -13,6 +13,8 @@
     
 
     
+        <meta name="description" content="2016/12/20Code下载有几个模式&amp;emsp;1、JLINK直接下到SRAM&amp;emsp;2、外设连接到EEPROM、FLASH，读入Code。不过好像要通过DIALOG的那个软件smartSnippets_Studio给ROM写入BOOT LOADER先。&amp;emsp;3、写到OTP，同时外设">
+    
 
     <!--Author-->
     
@@ -21,10 +23,12 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Herve&#39;s blog">
+        <meta property="og:title" content="BBPG开发笔记(1)">
     
 
     <!--Open Graph Description-->
+    
+        <meta property="og:description" content="2016/12/20Code下载有几个模式&amp;emsp;1、JLINK直接下到SRAM&amp;emsp;2、外设连接到EEPROM、FLASH，读入Code。不过好像要通过DIALOG的那个软件smartSnippets_Studio给ROM写入BOOT LOADER先。&amp;emsp;3、写到OTP，同时外设">
     
 
     <!--Open Graph Site Name-->
@@ -32,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -51,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>Archives - Herve&#39;s blog</title>
+    <title>BBPG开发笔记(1) - Herve&#39;s blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -153,153 +157,72 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Archives</h1>
+                <div class="post-heading">
+                    <h1>BBPG开发笔记(1)</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2016-12-20
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/关于IMU解算的一个贴士/">
-        <h1 class="post-title archive">
-            关于IMU解算的一个贴士
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-04-10
-    </p>
-</div>
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="2016-12-20"><a href="#2016-12-20" class="headerlink" title="2016/12/20"></a>2016/12/20</h3><h4 id="Code下载有几个模式"><a href="#Code下载有几个模式" class="headerlink" title="Code下载有几个模式"></a>Code下载有几个模式</h4><p>&emsp;1、JLINK直接下到SRAM<br>&emsp;2、外设连接到EEPROM、FLASH，读入Code。不过好像要通过DIALOG的那个软件smartSnippets_Studio给ROM写入BOOT LOADER先。<br>&emsp;3、写到OTP，同时外设的FLASH模式没用了？？</p>
+<h4 id="启动方式"><a href="#启动方式" class="headerlink" title="启动方式"></a>启动方式</h4><div align="center"><img src="/BBPG开发笔记-1/figure.1.JPG" alt="图1"><br><em>图1 启动方式</em> </div>
+
+<p>&emsp;&emsp;BOOT START（RST复位？？？）后进入引导流程，读取OTP上特定地址的FLAG数据，判断‘’Application Flags‘’，从而决定SRAM里代码的写入源；1、由OTP写入，但是一但决定这个OTP引导方式，便不能更改，因为FLAG在OTP，写了不能改了。2、启动外设接口，按顺序检测外部主SPI、UART、外部从SPI和I2C，寻找引导设备，并由特定的协议，读入Code，下载到SRAM。</p>
+<h3 id="2016-12-21"><a href="#2016-12-21" class="headerlink" title="2016.12.21"></a>2016.12.21</h3><p>&emsp;&emsp;电源总线3V电压用开关电源得来（TPS62736，BUCK），不使用LDO，LDO效率不够，起码锂电池3.7V到3V的压降太大了。<br>串口转USB好像没什么必要。</p>
+<p>&emsp;&emsp;IIC需要上拉，功耗增加。<br>&emsp;&emsp;I2C总线空闲的时候，两条信号线应该维持高电平。否则，上拉电阻上会有耗电。特别是在上电过程中，IO线上电平也应保持在高电平状态。也就是说：当Master的I2C使用的是IO软件模拟时，一定要保证该两个IO上电默认均为输入（或高阻）或者输出高电平，切不可默认为输出低电平。IO默认为输入时，可以通过外部上拉电阻将I2C信号线拉至高电平。</p>
+<h3 id="2016-12-27"><a href="#2016-12-27" class="headerlink" title="2016.12.27"></a>2016.12.27</h3><p>&emsp;&emsp;使用DIALOG的工具进行串口下载的时候，会要求用户进行手动复位，这就说的通了。</p>
+<p>&emsp;&emsp;蜂鸣器用的DET402-G-1</p>
+<h3 id="2016-12-28"><a href="#2016-12-28" class="headerlink" title="2016.12.28"></a>2016.12.28</h3><p>&emsp;&emsp;打算换四层板，好走线一点，求稳。</p>
+<p>&emsp;&emsp;今天向DIALOG申请到了SDK，有点复杂，先开始了解一下结构。<br>&emsp;&emsp;GAP: Generic Access Profile 通用存取Profile。跟蓝牙的advertising相关<br>&emsp;&emsp;GTL: Generic Transport Layer 通用传输层。当工作于外部主控模式时，用来传输主控到DA14580的数据<br>&emsp;&emsp;HCI : Host Controller Interface 主控接口。当工作于外部主控模式时，DA14580提供给主控的通讯接口<br>&emsp;&emsp;NVDS: Non-Volatile Data Storage 非易失性数据存储器。在DA14580中用来保存蓝牙地址和一些配置信息<br>&emsp;&emsp;SPotA: Software Patching over the Air 固件空中升级</p>
+<h3 id="2016-12-29"><a href="#2016-12-29" class="headerlink" title="2016.12.29"></a>2016.12.29</h3><p>&emsp;&emsp;文档AN-B-020_v1.3_End product testing and programming guidelines.pdf有提到各种下载方式。</p>
+<h3 id="2016-12-31"><a href="#2016-12-31" class="headerlink" title="2016.12.31"></a>2016.12.31</h3><p>&emsp;&emsp;V220的pcb文件有个错误</p>
+<div align="center"><img src="/BBPG开发笔记-1/figure.2.png" alt="图2"><br><em>图2</em> </div><br>&emsp;&emsp;RST复位电路接错了。V220已经修正。<br><div align="center"><img src="/BBPG开发笔记-1/figure.3.png" alt="图3"><br><em>图3</em> </div>
+
+
+
+                
+            </div>
+
+            <!-- Comments -->
             
-                <div class="post-preview">
-    <a href="/无人机的油门修正/">
-        <h1 class="post-title archive">
-            无人机的油门修正
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-04-10
-    </p>
-</div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
             
-                <div class="post-preview">
-    <a href="/记一次STM32在USB透传下的BUG/">
-        <h1 class="post-title archive">
-            记一次STM32在USB透传下的BUG
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-04-10
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/DAFX/DAFX-前言/">
-        <h1 class="post-title archive">
-            DAFX-前言
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-03-30
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/DAFX/DAFX-1-介绍/">
-        <h1 class="post-title archive">
-            DAFX-介绍
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2019-03-30
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/DAFX 翻译工作开始/">
-        <h1 class="post-title archive">
-            DAFX 翻译工作开始
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2018-11-30
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/BBPG开发笔记-3/">
-        <h1 class="post-title archive">
-            BBPG开发笔记(3)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-02-03
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/BBPG开发笔记-2/">
-        <h1 class="post-title archive">
-            BBPG开发笔记(2)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-01-02
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/BBPG开发笔记-1/">
-        <h1 class="post-title archive">
-            BBPG开发笔记(1)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2016-12-20
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
-</ul>
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr>
