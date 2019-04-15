@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="MathJax.Hub.Config({tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]]}});
+
+
+&amp;emsp;&amp;emsp;迷你四轴的电机通常选择的是直流有刷电机，像是空心杯720或820。原因有价格非常便宜，驱动简单，启动电压低，一般的软包3.7V">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Herve Lin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="直流电机的选择">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="MathJax.Hub.Config({tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]]}});
+
+
+&amp;emsp;&amp;emsp;迷你四轴的电机通常选择的是直流有刷电机，像是空心杯720或820。原因有价格非常便宜，驱动简单，启动电压低，一般的软包3.7V">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Herve&#39;s blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.com/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.com/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>直流电机的选择 - Herve&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MENU</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>直流电机的选择</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-04-13
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+<script type="text/javascript" async src="https://cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+<p>&emsp;&emsp;迷你四轴的电机通常选择的是直流有刷电机，像是空心杯720或820。原因有价格非常便宜，驱动简单，启动电压低，一般的软包3.7V聚合物锂电池一节就够了。而迷你尺寸的无刷电机非常的贵，一个要60-80的单价，加上迷你电调更贵了。</p>
+<p>&emsp;&emsp;很多应用要求比较高的启动扭矩，直流微电机可以减速达到高扭矩，以处理起动扭矩大的应用，并且容易吸收负载的突变，电机的转速可以调整以适应负载。而且直流微电机几乎是产品小型化应用的唯一方案，部分迷你步进电机可以做到6mm的直径，但是还要算上复杂的驱动电路的体积，在这些都很难取舍。</p>
+<h4 id="电机的特性曲线"><a href="#电机的特性曲线" class="headerlink" title="电机的特性曲线"></a>电机的特性曲线</h4><p>&emsp;&emsp;直流微电机的特性曲线由以下4个关键参数构成：<br>&emsp;&emsp;&emsp;1、空载转速（N<sub>0</sub>）：电机在额定电压下无负载运行时测得的转速，单位为RPM；<br>&emsp;&emsp;&emsp;2、空载电流（I<sub>0</sub>）：电机在额定电压下无负载运行时，在电机两端子间测得的输入电流，单位A；<br>&emsp;&emsp;&emsp;3、堵转电流（I<sub>s</sub>）：电机在额定电压下运行，因负载导致电机停转时瞬间测得的电流，单位A；<br>&emsp;&emsp;&emsp;4、堵转扭矩（T<sub>s</sub>）：电机在额定电机下运行，因负载导致电机停转时瞬间测得的最大扭矩，单位gf.cm。<br>&emsp;&emsp;&emsp;5、电机的性能曲线以输出扭矩为横坐标，以转速、电流、效率及转出功率为纵坐标，描绘相应的曲线N、电流曲线I、效率曲线$\eta$、输出功率曲线P。</p>
+<div align="center"><br><img src="/直流电机的选择/figure_1.JPG" width="40%" height="40%"><br></div>
+
+<h4 id="影响电机性能的主要因素"><a href="#影响电机性能的主要因素" class="headerlink" title="影响电机性能的主要因素"></a>影响电机性能的主要因素</h4><p>&emsp;&emsp;1、输入电压：输入电压的降低会令N<sub>0</sub>、I<sub>s</sub>、T<sub>s参数降低。<br>&emsp;&emsp;2、温度：环境温度或电机温度的上升将令N<sub>0</sub>增大，I<sub>s</sub>与T<sub>s降低。电机温度过高可能会对电机产生退磁作用甚至烧毁。</sub></sub></p>
+<h4 id="扭矩与转速的关系"><a href="#扭矩与转速的关系" class="headerlink" title="扭矩与转速的关系"></a>扭矩与转速的关系</h4><p>&emsp;&emsp;1、电机产生的扭矩与转速是相互影响。这是直流电机的基本特性，转速与扭矩呈线性关系。这常用作计算空载转速和起动扭矩。</p>
+<div align="center"><br><img src="/直流电机的选择/figure_2.JPG" width="40%" height="40%"><br></div>
+
+<p>&emsp;&emsp;2、电机的输出功率的曲线可以从扭矩和转速的曲线中推导而出。</p>
+<div align="center"><br><img src="/直流电机的选择/figure_3.JPG" width="40%" height="40%"><br></div>
+
+<p>&emsp;&emsp;3、扭矩-转速和输出功率曲线取决于电机的供电电压。</p>
+<p>&emsp;&emsp;电机可以工作在不同的电压下（通常在额定电压的-50%~+100%之间），假如电压低于额定电压，电机的功率降低，假如高于额定电压，电机的输出功率增大，但是容易发热。</p>
+<p>&emsp;&emsp;电压在-25%~+50%之间不断变化，新的扭矩和转速的曲线关系，平行于以前的曲线。启动扭矩和空载转速与供电电压变化的百分比相同。最大输出功率乘以$(1+\eta)^2$:<br>&emsp;&emsp;&emsp;例如：<br>&emsp;&emsp;&emsp;&emsp;电压增加20%<br>&emsp;&emsp;&emsp;&emsp;起始扭矩增加20%(x1.2)<br>&emsp;&emsp;&emsp;&emsp;空载转速增加20%(x1.2)<br>&emsp;&emsp;&emsp;&emsp;输出功率增加44%(x1.44)</p>
+<h4 id="扭矩与电流的关系"><a href="#扭矩与电流的关系" class="headerlink" title="扭矩与电流的关系"></a>扭矩与电流的关系</h4><p>这是直流电机的第二个重要特性：<br>1、电流和电机扭矩呈线性关系，用来计算空载电流和转子静止时的电流（起动电流）。、</p>
+<p>2、扭矩-转速，扭矩-电流曲线用于确定输入功率和电机转速的函数关系。</p>
+<h4 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h4><p>1、电机的效率等于机械输出功率除以电机输入功率，输入功率和输出功率随着转速的变化而变化，给定的转速大于空载速度的50%时可获得最大效率。<br>2、减速器传动效率：电动机配置减速器以后输出转矩的效率。其大小受轴承、齿轮的摩擦力以及润滑条件的影响。一般而言，经过一级传动的齿轮减速效率为90%，二极传动的效率是81%，减速比越大，其传动级数越多，其传动效率越低。安装减速器的电机明显提升负载能力，一般齿轮减速器的减速比为1：200，行星齿轮减速器的减速比可达到1：4500.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/HerveLin" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Herve Lin<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>
