@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="MathJax.Hub.Config({tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]]}});
+
+
+最终成品展示
+
+&amp;emsp;&amp;emsp;今年低年级的电子设计大赛题目其中有一道挑战性高一点的就是这个计时器设计，纯数字电路实现，我和强哥在宣讲会的时候">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Herve Lin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="简易会议发言计时器">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="MathJax.Hub.Config({tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]]}});
+
+
+最终成品展示
+
+&amp;emsp;&amp;emsp;今年低年级的电子设计大赛题目其中有一道挑战性高一点的就是这个计时器设计，纯数字电路实现，我和强哥在宣讲会的时候">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Herve&#39;s blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.com/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.com/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>简易会议发言计时器 - Herve&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MENU</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>简易会议发言计时器</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2015-05-22
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/电子设计大赛/">#电子设计大赛</a> <a href="/tags/数字电子技术/">#数字电子技术</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+<script type="text/javascript" async src="https://cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+<div align="center"><img src="/简易会议发言计时器/figure.1.JPG" alt="图1"><br><em>最终成品展示</em></div>
+
+<p>&emsp;&emsp;今年低年级的电子设计大赛题目其中有一道挑战性高一点的就是这个计时器设计，纯数字电路实现，我和强哥在宣讲会的时候就把大概的思路理出来了。</p>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>&emsp;&emsp;本设计要用中、小规模集成电路实现简易会议发言计时器，可预设会议时间，以倒计时方式进行。在限时时间结束的前一分钟，灯光闪烁以示警告，结束后，灯光更快闪烁的同时发出声音警告，制止会议继续。<br>&emsp;&emsp;该设计可分为时钟脉冲电路，预置时间电路，计数电路，译码电路，显示电路，剩余时间判断电路，警告信号发生电路等模块。<br>&emsp;&emsp;设计中采用NE555产生时钟脉冲，用按键开关预置会议时间，74LS192双时钟可逆十进制计数器进行计数，译码器为74ls248，用7段共阴数码管显示，判断电路采用TTL门电路，使用蜂鸣器发出刺耳警报。</p>
+<h2 id="一、系统概述"><a href="#一、系统概述" class="headerlink" title="一、系统概述"></a>一、系统概述</h2><h3 id="1-1、总体方案"><a href="#1-1、总体方案" class="headerlink" title="1.1、总体方案"></a>1.1、总体方案</h3><p>&emsp;&emsp;总体方案设计框图如下，包含时钟脉冲电路，预置时间电路，计数电路，译码电路，显示电路，剩余时间判断电路，警告信号发生电路。<br>&emsp;&emsp;时钟脉冲发生电路→计数电路→预置时间电路→译码电路→显示电路→剩余时间判断电路→警告信号发生电路<br>&emsp;&emsp;时钟脉冲电路产生5hz频率的方波，通过74LS390二分频出2.5Hz信号为报警灯所用和五分频出1Hz时钟脉冲信号，通过计数器和译码器显示在4个数码管上。当剩余分钟数为0 时（也就是剩余一分钟），让LED灯闪烁，当倒计时为0 0：0 0时，让鸣峰器发出声音。</p>
+<h3 id="1-2、方案论证及选择"><a href="#1-2、方案论证及选择" class="headerlink" title="1.2、方案论证及选择"></a>1.2、方案论证及选择</h3><h4 id="1-2-1、电源方案选择"><a href="#1-2-1、电源方案选择" class="headerlink" title="1.2.1、电源方案选择"></a>1.2.1、电源方案选择</h4><h5 id="方案一：用5V的蓄电池做电路的工作电源。"><a href="#方案一：用5V的蓄电池做电路的工作电源。" class="headerlink" title="方案一：用5V的蓄电池做电路的工作电源。"></a>方案一：用5V的蓄电池做电路的工作电源。</h5><p>&emsp;&emsp;电路接线简单，使用方便，可移动性能强，整体电路均为5V的电源不必变压可以直接使用。但是，总体电路的芯片较多，每个芯片均需要电源提供5V的电压，总体耗电量可能较大，当蓄电池电量不足时可能影响芯片的正常工作，使电路出现混乱。而且市场上5V蓄电池也不容易买到。常用方法为一个6V的蓄电池（3片2V的蓄电池）串联一个二极管降到5.3V左右，但是蓄电池的电压很不稳定，在充满电的时候，电压可以达到2.4V×3=7.2V，在一般的时候也是2.25V×3＝6.75V，完全放电以后的电压为1.75V×3＝5.25V。随着电量减少，电压变化范围较大，有的芯片对电压要求比较严格，所以此方案不可行。</p>
+<h5 id="方案二：使用LM7805构成5V稳压电源。"><a href="#方案二：使用LM7805构成5V稳压电源。" class="headerlink" title="方案二：使用LM7805构成5V稳压电源。"></a>方案二：使用LM7805构成5V稳压电源。</h5><p>&emsp;&emsp;通过变压器将市电220V，50Hz交流电转化为12V，50Hz交流电，在通过全桥二极管进行整流，通过LM7805进行稳压得到5V直流电压。此方案比较容易实现，LM78XX系列产品可以在任何一个电子元件商店一定都能买到，成本较低，性能稳定，输出电流最大可达1A，可以满足设计要求。所以到了最终阶段可以添加这一供电方式，不过介于我们的产品正在实验阶段，所以暂时不考虑此方案。</p>
+<h5 id="方案三-通过USB数据线供电"><a href="#方案三-通过USB数据线供电" class="headerlink" title="方案三:通过USB数据线供电"></a>方案三:通过USB数据线供电</h5><p>&emsp;&emsp;可以通过手机、电脑、AD适配器甚至充电宝与USB数据线相连，然后用于电路供电，通过USB供电可以直接得到5V的稳定电压,所以这种方案使用较方便，而且符合实际使用（在开会的环境下有笔记本，充电宝等随处可用的安全接口），与方案二比较后此方案较好，故采用此方案。</p>
+<h4 id="1-2-2、时钟脉冲产生电路方案选择"><a href="#1-2-2、时钟脉冲产生电路方案选择" class="headerlink" title="1.2.2、时钟脉冲产生电路方案选择"></a>1.2.2、时钟脉冲产生电路方案选择</h4><h5 id="方案一：使用晶体振荡分频电路。"><a href="#方案一：使用晶体振荡分频电路。" class="headerlink" title="方案一：使用晶体振荡分频电路。"></a>方案一：使用晶体振荡分频电路。</h5><p>&emsp;&emsp;采用石英晶体振荡器，起振快，时基精度高。振荡工作频率仅决定于石英晶体的谐振频率，而与电路中的R、C 数值无关。振荡器经内部分频电路后可分为多档输出，可以使脉冲精度从毫秒到小时。起振、停振、清零都可以从电路上端口直接控制，方便。但本系统中所用的脉冲只需1Hz的低频脉冲，不需太高的精确度，而石英晶体振荡频率较高，用在本系统需多次分频（用实验室有的CD4060IC需要两枚），电路会比较复杂。所以不用此方案。</p>
+<h5 id="方案二：采用555定时器芯片构成多谐振荡电路。"><a href="#方案二：采用555定时器芯片构成多谐振荡电路。" class="headerlink" title="方案二：采用555定时器芯片构成多谐振荡电路。"></a>方案二：采用555定时器芯片构成多谐振荡电路。</h5><p>&emsp;&emsp;采用555定时器芯片构成多谐振荡电路产生所需脉冲。555定时器是一种单片集成电路，只需要在其外部配上少量的阻容元件，就可以构成多谐振荡脉冲电路，使用灵活方便，振荡周期可根据其外部接的电阻、电容计算。其电路较简单且可以利用T与R1、R2、C的关系方便地改变振荡频率，以满足系统要求。并且我们需要的是5Hz的信号，555构成的振荡电路可以通过可调电阻随时调整我们需要的频率，这个也是晶振振荡电路不能做到的，所以选用此方案。</p>
+<h4 id="1-2-3、倒计时电路方案选择"><a href="#1-2-3、倒计时电路方案选择" class="headerlink" title="1.2.3、倒计时电路方案选择"></a>1.2.3、倒计时电路方案选择</h4><p>&emsp;&emsp;由于设计中要求实现倒数计时，故须选择可逆计数器，而74LS192、74LS193均为双时钟脉冲输入可逆加减计数器，且其清零和置数方式均为异步，两者都可选，不同的是74LS192为十进制计数，而74LS193为16进制计数，本系统中用到的十进制计数较多，故选用74LS192电路较为简单方便。而74LS192无论在加计数还是减计数时，双时钟脉冲均需保持一个为高电平，另一个输入时钟脉冲，基于此要求本系统中采用4片74LS192为倒计时电路。并利用复位置位控制端为置数电路，清零电路做准备。</p>
+<h4 id="1-2-4、预置时间电路方案选择"><a href="#1-2-4、预置时间电路方案选择" class="headerlink" title="1.2.4、预置时间电路方案选择"></a>1.2.4、预置时间电路方案选择</h4><h5 id="方案一：使用单刀双掷开关给74LS192的输入端赋初值"><a href="#方案一：使用单刀双掷开关给74LS192的输入端赋初值" class="headerlink" title="方案一：使用单刀双掷开关给74LS192的输入端赋初值"></a>方案一：使用单刀双掷开关给74LS192的输入端赋初值</h5><div align="center"><img src="/简易会议发言计时器/figure.2.JPG" alt="图2"><br></div><br>&emsp;&emsp;如图，通过单刀双掷开关可以控制初值，SW1、SW2、SW3、SW4的值分别为1、2、4、8，由4个开关可以组成0-9的任意数值，可满足设计要求，但是由于使用并不方便（通过四个开关控制1，2，4，8的加减），开会的人时间是很宝贵的，故排除此方案。<br>##### 方案二：使用按钮来控制74LS192赋初值<br><div align="center"><img src="/简易会议发言计时器/figure.3.JPG" alt="图3"><br></div><br>&emsp;&emsp;由这种方法赋值时，每按下一下按钮时使对应的UP引脚产生一个负脉冲，在负脉冲回复时能产生相应一个上升沿，从而引起计数器加一。这种方案易于使用者理解，使用方便，故采用此方案。<br><br>#### 1.2.5、显示电路方案选择<br>##### 方案一：使用LCD显示电路。<br>&emsp;&emsp;LCD显示比较清晰，完整，但是电路复杂，需要背光，在会议的环境是常常比较暗的（PPT投影需要），如果背光设计不当，漏光问题也是很影响计时器的使用。而且需要比较专业的知识来完成LCD控制，且价格较高，故不采用此方案。<br>##### 方案二：用7段共阴极数码管构成。<br>&emsp;&emsp;由于由计数电路芯片74LS192出来的信号为4位二进制数，故用74LS248共阴极7段数码管驱动芯片和共阴极数码管就可以构成显示电路。在深大的实验室就有这种数码管，所以此方案简单、经济且易于实行，选用此方案。<br><br>#### 1.2.6、剩余时间判断电路选择<br>##### 方案一：用74LS58比较器芯片构成。<br>&emsp;&emsp;74LS58是4位二进制数比较芯片，利用级联输入端进行级联扩展，实现比较功能。但是使用74LS58芯片接线比较复杂，而且本系统比较数据比较简单，所以不使用此方案。<br>##### 方案二：利用门电路构成。<br>&emsp;&emsp;本系统需要比较倒计时为1分钟和倒计时为0。用适当的门电路就可完成，工作原理比较简单，成本较低。所以采用此方案。<br><br>## 二、单元电路设计<br>### 2.1、时钟脉冲产生电路设计<br>&emsp;&emsp;时钟脉冲产生电路如图2-3（a）所示，利用555定时器和电阻、电容构成多谐振荡器来产生一定频率的脉冲信号。当RST端即555芯片的四角为高电平‘1’时多谐振荡器开始进行工作。<br>&emsp;&emsp;输出脉冲的频率为<br>
+$$
+5Hz = f = \frac{1}{T} = \frac{1.44}{(R_1+2R_2)C_1}
+\tag{2.1.1}
+$$
+<br><br>&emsp;&emsp;占空比为<br>
+$$
+q = \frac{R_1+R_2}{R_1+2R_2} > 50\%
+\tag{2.1.2}
+$$
+<br>&emsp;&emsp;所以电阻、电容的参数为: R1=5.7KΩ，R2=11.5KΩ，C1=10μF<br><br><div align="center"><img src="/简易会议发言计时器/figure.4.JPG" alt="图4"><br></div>
+
+<div align="center"><img src="/简易会议发言计时器/figure.5.JPG" alt="图5"><br></div>
+
+<p>&emsp;&emsp;如图，通过调节电阻可以准确地产生1hz的时钟，而且信号稳定。用它作为74LS192的计数脉冲，完成计数工作。</p>
+<h3 id="2-2、倒计时电路设计"><a href="#2-2、倒计时电路设计" class="headerlink" title="2.2、倒计时电路设计"></a>2.2、倒计时电路设计</h3><p>&emsp;&emsp;利用555定时器构成多谐振荡器产生的脉冲信号作为74 LS192的CPD信号，进行减计数工作，74 LS192为双时钟十进制可逆计数器芯片，其功能表如表2-1所示，当CPU为高电平‘1’， RD为低电平‘0’，LD为高电平‘1’时，在CPD的上升沿时进行减计数工作；当RD、 LD均为低电平‘0’时，计数器置数；RD为高电平‘1’，LD为低电平‘0’时，计数器清零。</p>
+<div align="center"><img src="/简易会议发言计时器/figure.6.JPG" alt="图6"><br></div>
+
+<p>&emsp;&emsp;电路原理如图2-3所示，555定时器构成多谐振荡器发出频率脉冲，给U2的CPD信号，U2的TCD端为借位信号，当U2输出为0时TCD发出信号，将此信号接在U3的CPD上就为U3的脉冲信号，实现60进制减计数功能，。74LS192的异步清零和CPU接高电平‘1’。但是在整体电路中清零端要接在清零开关上面。</p>
+<div align="center"><img src="/简易会议发言计时器/figure.7.JPG" alt="图7"><br></div>
+
+<h3 id="2-3、译码电路设计"><a href="#2-3、译码电路设计" class="headerlink" title="2.3、译码电路设计"></a>2.3、译码电路设计</h3><p>&emsp;&emsp;本系统中应用的各个数码管均为7段共阴极数码管，用译码器74ls248可完成译码功能，从而使显示电路与计数电路实现功能连接。74ls248的引脚功能表如表2.4。<br>&emsp;&emsp;灯测试输入LT ‘=0时，七段同时点亮；LT ‘=1时，处于正常工作状态。<br>&emsp;&emsp;灭零输入RBI ‘=0时，应显示的0被熄灭；RBI ‘=1时，0可以正常显示。<br>&emsp;&emsp;灭灯输入BI ‘=0时，各段同时熄灭，不显示数字。<br>&emsp;&emsp;灭零输入RBO ‘：当A3A2A1A0全为0时，RBO ‘=0表示显示的零被熄灭。<br>&emsp;&emsp;只有当RBI ‘,LT ‘,BI ‘/RBO &emsp;&emsp;同时为1时，译码器才能进行译码功能，就可以对输入为十进制数0-15的二进制码进行译码，产生显示0-15所需的七段显示码。</p>
+<div align="center"><img src="/简易会议发言计时器/figure.8.JPG" alt="图8"><br></div>
+
+<p>&emsp;&emsp;电路图如下图所示。</p>
+<div align="center"><img src="/简易会议发言计时器/figure.9.JPG" alt="图9"><br></div>
+
+<h3 id="2-4、显示电路设计"><a href="#2-4、显示电路设计" class="headerlink" title="2.4、显示电路设计"></a>2.4、显示电路设计</h3><p>&emsp;&emsp;7段共阴数码管的引脚较为简单，如图，a-g引脚分别于与74ls248的Qa-Qg相连。为了保护数码管，应该在a-g引脚分别串联一个电阻。由于发光二极管的限定电流大约为10mA,而通过计数器和译码器后5V电压产生压降，输出电压大概为1.5V，通过计算得所串流电阻为150欧姆。电路图如下。</p>
+<div align="center"><img src="/简易会议发言计时器/figure.10.JPG" alt="图10"><br></div>
+
+<div align="center"><img src="/简易会议发言计时器/figure.11.JPG" alt="图11"><br></div>
+
+<h3 id="2-5、判断门电路与警告电路设计"><a href="#2-5、判断门电路与警告电路设计" class="headerlink" title="2.5、判断门电路与警告电路设计"></a>2.5、判断门电路与警告电路设计</h3><p>&emsp;&emsp;要让计时器在显示时间只有一分钟，和显示时间为零时给出信号提醒，需判断数码管的显示状态。当显示剩余时间为只有一分钟时，它的十分位和个分位显示为0,0。要判断数码管是否显示为0，原则上只需判断g引脚为假，f引脚为真是否同时成立就可以确定是否为0。<br>&emsp;&emsp;但是由于经过计数器和译码器后产生了压降，数码管及时亮的时候，对应的引脚电压只有大概1.5V，通过门电路判断时，并不能确定1.5V的电压的逻辑状态。所以这种方法不可行。<br>&emsp;&emsp;但是通过对译码器的ABCD引脚的判断可以实现。当A非B非C非D非同时成立时，数码管显示为0。A非B非C非D非反演后为(A+B+C+D)非。通过判断后的电压不足以让发光二极管点亮，系统中用三极管做开关，判断信号做B极，当判断为真时，就可以给出信号提醒，此外让发光二极管闪烁可再用一个555电路。电路图如下图（部分接线已省略）。</p>
+<div align="center"><img src="/简易会议发言计时器/figure.12.JPG" alt="图12"><br></div>
+
+<p>&emsp;&emsp;同样，要判断剩余时间为零时，让判断信号作为三极管的B极，控制鸣峰器的通断。电路图如下图（部分连线已省略）。</p>
+<div align="center"><img src="/简易会议发言计时器/figure.13.JPG" alt="图13"><br></div>
+
+<h3 id="2-6、总体电路"><a href="#2-6、总体电路" class="headerlink" title="2.6、总体电路"></a>2.6、总体电路</h3><div align="center"><img src="/简易会议发言计时器/figure.14.JPG" alt="图14"><br><em>计时与显示电路</em></div><br><div align="center"><img src="/简易会议发言计时器/figure.15.JPG" alt="图15"><br><em>报警电路</em></div>
+
+<h2 id="三、结尾"><a href="#三、结尾" class="headerlink" title="三、结尾"></a>三、结尾</h2><h3 id="3-1、本设计的优点，缺点，改进方向，创新点"><a href="#3-1、本设计的优点，缺点，改进方向，创新点" class="headerlink" title="3.1、本设计的优点，缺点，改进方向，创新点"></a>3.1、本设计的优点，缺点，改进方向，创新点</h3><p>&emsp;&emsp;特点：本设计系统简单实用，成本较低，制作成成品后，操作简单，容易掌握。可以完成各种简单的会议、比赛、娱乐的计时工作。<br>&emsp;&emsp;缺点与改进方向：计时器是一种小工具，当时本设计却没有那种短小精悍的感觉 ，报警声音不够人性，且电路相对复杂，可维护性低，稳定性略输。但是我们可以加大它的集成度，精简电路，例如可以使用单片机控制，这样整个计时器可一做小做稳做美，这也是我们可以实现的。<br>&emsp;&emsp;创新点：我们巧妙的使用了USB供电，今时今日，USB是使用广泛的借口，随处可见，安全方便，我们把它用在了我们的设计之上。并且我们巧妙的设计了闪烁报警灯，而不是单调的红灯绿灯蓝灯。最最棒的是我们留有时间的判断输出口，用户可以根据自己的需要十分方便的DIY定时浇水器，定时加热器等小工具。</p>
+<h3 id="3-2、设计感悟"><a href="#3-2、设计感悟" class="headerlink" title="3.2、设计感悟"></a>3.2、设计感悟</h3><p>&emsp;&emsp;以上设计基本实现了会议的计时功能，在这个过程中真正地感受到了设计一个作品的重重困难和解决问题后的巨大乐趣。其中有很多问题的解决只能依靠经验，从中知道了实践对于学习而言有无可替代的重要性。<br>&emsp;&emsp;为了完成设计，查阅了很多相关资料和应用，清楚了一些芯片的功能，明白了时钟脉冲电路的设计。<br>&emsp;&emsp;通过PROTEUS软件仿真，对PROTEUS的了解和应用增强。在仿真软件中能良好运行的程序，但是仿真和现实是有不小的差距的，仿真只能保证逻辑的正确，在实际运行时往往会出现一系列的问题，这可能是焊接的问题，而这些通过调试、思考、讨论最终得以解决。<br>&emsp;&emsp;总的来说，我们绞尽脑汁解决了非常非常多的问题，学习了许许多多知识。通过这次电子设计，无论在动手还是动脑方面，都有很大的提高。 </p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/HerveLin" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Herve Lin<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>
