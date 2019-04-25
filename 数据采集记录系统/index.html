@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="&amp;emsp;&amp;emsp;又是一年一度的电子设计大赛了，去年什么奖都没拿，完全不知道评委是什么眼光。今年大二了，可以参加高年级组的题目，我们选了一个物联网主题的题目，设计一个数据采集系统。
+&amp;emsp;&amp;emsp;本次手机APP是采用面向对象的编程语言（java）和面向对象的编程工具（eclipse）">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Herve Lin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="数据采集记录系统">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="&amp;emsp;&amp;emsp;又是一年一度的电子设计大赛了，去年什么奖都没拿，完全不知道评委是什么眼光。今年大二了，可以参加高年级组的题目，我们选了一个物联网主题的题目，设计一个数据采集系统。
+&amp;emsp;&amp;emsp;本次手机APP是采用面向对象的编程语言（java）和面向对象的编程工具（eclipse）">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Herve&#39;s blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.com/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.com/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>数据采集记录系统 - Herve&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MENU</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>数据采集记录系统</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2016-05-11
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/电子设计大赛/">#电子设计大赛</a> <a href="/tags/单片机/">#单片机</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>&emsp;&emsp;又是一年一度的电子设计大赛了，去年什么奖都没拿，完全不知道评委是什么眼光。今年大二了，可以参加高年级组的题目，我们选了一个物联网主题的题目，设计一个数据采集系统。</p>
+<p>&emsp;&emsp;本次手机APP是采用面向对象的编程语言（java）和面向对象的编程工具（eclipse）开发出来的android app。app可以自动识别经过加密压缩的数据短信，并将解码后的数据完整的写进数据库，并且可以将数据库数据按地点、年月日进行查询，根据选择画出数据图表。</p>
+<p>&emsp;&emsp;涉及的内容有：短信的读取、数据解码、litepal数据库框架、数据短信的防重复读写处理、野外数据多地点检测、achartengine作图库、动画特效。</p>
+<h5 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h5><p>&emsp;STM32,PM2.5,GSM,android开发,SQL,litepal数据库,achartengine。</p>
+<h2 id="一、设计任务和要求"><a href="#一、设计任务和要求" class="headerlink" title="一、设计任务和要求"></a>一、设计任务和要求</h2><h3 id="1、任务"><a href="#1、任务" class="headerlink" title="1、任务"></a>1、任务</h3><p>&emsp;&emsp;野外一般没有Wifi，却有GSM网络的覆盖，因此需要设计一个通过GSM网络采集数据的系统。将下位机采集到的数据，通过GSM无线通讯技术，传输到手机内显示，并实现保存和分析功能。</p>
+<div align="center"><img src="/数据采集记录系统/figure.1.JPG" alt="图1"><br>系统示意图</div>
+
+<h3 id="2、要求"><a href="#2、要求" class="headerlink" title="2、要求"></a>2、要求</h3><h4 id="A-基本要求"><a href="#A-基本要求" class="headerlink" title="A. 基本要求"></a>A. 基本要求</h4><p>&emsp;&emsp;（1）下位机通过I/O口和温度探测器相连，温度设定范围为5～50℃，最小区分度为0.1℃，标定误差温度≤0.1℃。<br>&emsp;&emsp;（2）用十进制数码管显示环境的实际温度。<br>&emsp;&emsp;（3）能够每小时缓存一组温度数据。<br>&emsp;&emsp;（4）能够每5个小时定时通过GSM模块、以短信的方式集中将5组温度数据发送给指定手机保存。</p>
+<h4 id="B-发挥部分"><a href="#B-发挥部分" class="headerlink" title="B. 发挥部分"></a>B. 发挥部分</h4><p>&emsp;&emsp;（1）在手机端自动阅读短信并能保存温度数据进行统计分析。<br>&emsp;&emsp;（2）尝试建立数据服务器，下位机用GPRS的形式将数据传给服务器，手机能用APP程序，阅读和统计分析数据。以上功能完成1项即可。<br>&emsp;&emsp;（3）完善手机APP界面。 </p>
+<h2 id="二、总体方案"><a href="#二、总体方案" class="headerlink" title="二、总体方案"></a>二、总体方案</h2><h3 id="2-1-方案的描述"><a href="#2-1-方案的描述" class="headerlink" title="2.1 方案的描述"></a>2.1 方案的描述</h3><p>&emsp;&emsp;经过构思，我们的系统决定使用单片机加功能模块完成，为了更加符合野外数据采集的需求，我们还加入了湿度，PM2.5的测量，以及设计了SD卡基于FAT32文件系统的数据储存系统，用以应对不稳定的野外数据传输环境。<br>&emsp;&emsp;因为GSM对外的数据发送并不是稳定的，例如SIM卡欠费来不及充值，强磁信号干扰，服务器不稳定，都会导致数据断流，这个时候把数据存一份在SD卡中的LOG文件，是十分稳定可靠的，同时也可以分析系统运行状态，利于设备的维护。<br>&emsp;&emsp;PM2.5测量的加入是为了响应时代的潮流，近几年，中国的空气状况频繁上新闻头条，PM2.5就是一个关键词，重要的空气质量指标，连小孩老人都关注。所以，野外数据采集系统当然需要空气质量的检测，所以，我们加入了PM2.5检测。</p>
+<div align="center"><img src="/数据采集记录系统/figure.2.JPG" alt="图2"><br></div>
+
+<h3 id="2-2-方案的比较分析"><a href="#2-2-方案的比较分析" class="headerlink" title="2.2 方案的比较分析"></a>2.2 方案的比较分析</h3><p>&emsp;&emsp;(1)    单片机MCU选型<br>&emsp;&emsp;&emsp;市面上的单片机真的有无数种，但是题目一出来我就决定使用意法半导体的STM32F103系单片机:<br>&emsp;&emsp;&emsp;1.    51单片机<br>&emsp;&emsp;&emsp;&emsp;51单片机是全中国大学生用到烂的一款单片机，以下是51单片机的普遍配置：</p>
+<p><font face="黑体" color="black" size="3"><br>&emsp;&emsp;&emsp;&emsp;•8位CPU•4kbytes程序存储器(ROM) (52为8K)<br>&emsp;&emsp;&emsp;&emsp;•128bytes的数据存储器(RAM) （52有256bytes的RAM）<br>&emsp;&emsp;&emsp;&emsp;•32条I/O口线•111条指令，大部分为单字节指令<br>&emsp;&emsp;&emsp;&emsp;•21个专用寄存器<br>&emsp;&emsp;&emsp;&emsp;•2个可编程定时/计数器•5个中断源，2个优先级（52有6个）<br>&emsp;&emsp;&emsp;&emsp;•一个全双工串行通信口<br>&emsp;&emsp;&emsp;&emsp;•外部数据存储器寻址空间为64kB<br>&emsp;&emsp;&emsp;&emsp;•外部程序存储器寻址空间为64kB<br>&emsp;&emsp;&emsp;&emsp;•逻辑操作位寻址功能•双列直插40PinDIP封装<br>&emsp;&emsp;&emsp;&emsp;•单一+5V电源供电<br>&emsp;&emsp;&emsp;&emsp;CPU：由运算和控制逻辑组成，同时还包括中断系统和部分外部特殊功能寄存器；<br>&emsp;&emsp;&emsp;&emsp;RAM：用以存放可以读写的数据，如运算的中间结果、最终结果以及欲显示的数据；<br>&emsp;&emsp;&emsp;&emsp;ROM：用以存放程序、一些原始数据和表格；<br>&emsp;&emsp;&emsp;&emsp;I/O口：四个8位并行I/O口，既可用作输入，也可用作输出<br>&emsp;&emsp;&emsp;&emsp;T/C：两个定时/记数器，既可以工作在定时模式，也可以工作在记数模式；<br>&emsp;&emsp;&emsp;&emsp;五个中断源的中断控制系统；<br>&emsp;&emsp;&emsp;&emsp;一个全双工UART（通用异步接收发送器）的串行I/O口。<br>&emsp;&emsp;&emsp;&emsp;片内振荡器和时钟产生电路，石英晶体和微调电容需要外接。最佳振荡频率为6M—12M。<br></font><br>&emsp;&emsp;&emsp;&emsp;首先51（52）单片机的外设就很吝啬，只有一个硬件UART，但是在我们的系统需要两个UART串口（GSM模块和粉尘检测模块），一个SPI（SD卡），一个I2C（温度湿度模块），显然不足，当然，国产的51单片机厂商STC已经给51拓展的很强大了，但是满足外设需求的高端系列芯片一片售价是4-6块钱，我们选用的ARM单片机才6块钱，性价比首先就打败了51，其次，51的内存才128B（52是256B），STC的高端芯片是有2KB的，但也是不足的，打个比方，GSM的串口需要的缓存BUFFER我们开辟了512B，<br>&emsp;&emsp;&emsp;&emsp;USB的BUFFER是512B，LCD的显存1KB（由于LCD选用了串行通信，所以内置缓存不能使用，是LCD的硬件BUG），还没举例完，51的内存显然是不够的，后面还更有传感器数据的FIFO队列需要大量内存。所以，我们淘汰了51单片机的MCU方案。</p>
+<p>&emsp;&emsp;&emsp;2.    Arduino<br>Arduino是在世界范围都十分流行的一款单片机，有基于AVR的Arduino，有基于STM的Arduino，高端的Arduino是能满足我们的资源需求。但是，成本高，而且，Arduino最终还是一块开发板，不适合我们做集成度高的作品。再者，Arduino的软件集成度太高，函数都封装在SDK里面，但是我们系统的模块通信之间的协议的低层是需要一定的调整的。总之，用Arduino太不自由，不适合我们这些高端的开发者，淘汰掉。</p>
+<p>&emsp;&emsp;&emsp;3.    ARM 单片机<br>ARM是近几年的关键词，ARM嵌入式已经占到了非常大的份额，看看现在智能手机的普及率，吓死人。ARM普及了，有什么好处呢，成本下降了，人人都可以用了。我们选用的就是意法半导体的STM32F103C8T6，散件买也只要6元一片，十分便宜，接下来介绍下他的配置，从它的DATASHEET可以看到：</p>
+<div align="center"><img src="/数据采集记录系统/figure.3.JPG" alt="图3"><br></div>
+
+<div align="center"><img src="/数据采集记录系统/figure.4.JPG" alt="图4"><br></div>
+
+<p>&emsp;&emsp;&emsp;&emsp;首先他的运行频率是72MHz（默认），而且是ARM的指令集，大部分指令的机器周期才1，而51频率最多12MHz（普遍），而且机器周期是12，这个运算速度差距十分明显。后面我们系统需要用到的短信压缩算法（哈夫曼编码，强哥编码），卡尔曼滤波算法，浮点数据的标定，都需要大量的运算，显然选用它是十分恰当的。同时，它内置USB，CRC硬件处理，简直就是对系统维护和SD卡的通信的神器。它的内存有20KB，2个硬件SPI，2个硬件I2C，3个USART，37个IO，真的绰绰有余。它还有DMA，对于这么频繁的数据通信的设备，又是一个致命的优点。最后要介绍的是他的看门狗功能，野外数据采集是对系统的自稳定要求非常高的项目，他有IWDG和WWDG两种看门狗功能，长期的运行，环境的恶劣，设备是随时可能跑飞，当机。开启了看门狗，这些情况真的不算什么，能在问题发生时自复位，之后对系统的故障记录，以及数据的保护都是简单的事。</p>
+<h2 id="三、单元电路设计"><a href="#三、单元电路设计" class="headerlink" title="三、单元电路设计"></a>三、单元电路设计</h2><h3 id="3-1-硬件框架"><a href="#3-1-硬件框架" class="headerlink" title="3.1 硬件框架"></a>3.1 硬件框架</h3><h4 id="3-1-1-原理图"><a href="#3-1-1-原理图" class="headerlink" title="3.1.1 原理图"></a>3.1.1 原理图</h4><div align="center"><img src="/数据采集记录系统/figure.5.JPG" alt="图5"><br></div>
+
+<p>详细原理图（绘于OrCAD）<br>PART1(STM32F103C8T6):</p>
+<div align="center"><img src="/数据采集记录系统/figure.6.JPG" alt="图6"><br></div>
+
+<p>PART2(LCD12864):</p>
+<div align="center"><img src="/数据采集记录系统/figure.7.JPG" alt="图7"><br></div>
+
+<p>PART3(电源部分):</p>
+<div align="center"><img src="/数据采集记录系统/figure.8.JPG" alt="图8"><br></div>
+
+<p>PART4(GSM、MICROSD):</p>
+<div align="center"><img src="/数据采集记录系统/figure.9.JPG" alt="图9"><br></div>
+
+<p>PART5(传感器):</p>
+<div align="center"><img src="/数据采集记录系统/figure.10.JPG" alt="图10"><br></div>
+
+<p>PART6(按键、LED指示灯):</p>
+<div align="center"><img src="/数据采集记录系统/figure.11.JPG" alt="图11"><br></div>
+
+<h4 id="3-1-2-PCB图"><a href="#3-1-2-PCB图" class="headerlink" title="3.1.2 PCB图"></a>3.1.2 PCB图</h4><div align="center"><img src="/数据采集记录系统/figure.12.JPG" alt="图12"><br></div>
+
+<h3 id="3-2-开关电源的设计"><a href="#3-2-开关电源的设计" class="headerlink" title="3.2 开关电源的设计"></a>3.2 开关电源的设计</h3><p>&emsp;&emsp;在本系统中，单片机供电需求是3.3v直流电，温湿度传感器供电需求是3.3v直流电，SD卡供电需求是3.3v直流电，LCD显示屏供电要求是3.3v直流电。所以我们决定用低压差线性稳压器（LDO）把USB或锂电池减压的到3.3v。而GSM模块和粉尘传感器是5v供电，直接由USB或者锂电池BOOST升压得到。经过选型，我们的LDO芯片选用德州仪器的TPS79333，输入电压为3.50V-5.24V，输出电压3.3V，最大输出电流0.2A，效率62%，工作环境-40 ~ 125℃。它的DATASHEET节选如下:</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/HerveLin" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Herve Lin<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>
