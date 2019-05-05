@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="通常在一个电子产品开发的时候，首先面临的就是电源的设计。电源是一个硬件系统的核心，它决定了系统的子单元能否稳定的工作，设备是否安全以及可靠。例如之前我参与的汽车车载音响开发，设备是由汽车的12V电源总线输入，而这个12V是来自于蓄电池或者发电机整流而来，当油门加大，汽车的负载不稳定的时候，12V的输">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Herve Lin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="讨论一下非隔离式DCDC电源的设计">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="通常在一个电子产品开发的时候，首先面临的就是电源的设计。电源是一个硬件系统的核心，它决定了系统的子单元能否稳定的工作，设备是否安全以及可靠。例如之前我参与的汽车车载音响开发，设备是由汽车的12V电源总线输入，而这个12V是来自于蓄电池或者发电机整流而来，当油门加大，汽车的负载不稳定的时候，12V的输">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Herve&#39;s blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.com/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.com/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>讨论一下非隔离式DCDC电源的设计 - Herve&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MENU</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>讨论一下非隔离式DCDC电源的设计</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-05-15
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>通常在一个电子产品开发的时候，首先面临的就是电源的设计。电源是一个硬件系统的核心，它决定了系统的子单元能否稳定的工作，设备是否安全以及可靠。例如之前我参与的汽车车载音响开发，设备是由汽车的12V电源总线输入，而这个12V是来自于蓄电池或者发电机整流而来，当油门加大，汽车的负载不稳定的时候，12V的输入会有很大的噪音和波纹，直接耦合进音响系统产生人耳可感知的噪音。根据供电需求，电源的效率，频率或热设计的多种因素需要考虑。</p>
+<p>目前常见的电源拓扑分为隔离式电源和非隔离式电源。隔离式与非隔离式的区别主要是前后级是否共地，隔离式电源常见的有通过变压器隔离的反激式变换器、正激式变换器和桥式变换器。隔离电源的优点是抗干扰能力强与安全，同时变压器可以容易的实现升压，而它的缺点是效率很难做高，功率密度低与设计复杂等。非隔离电源的优点是转换效率可以做很高，频率可以做很高，也相应的功率密度可以做高，成本较低；而它的缺点是不安全，很难实现较大的输入与输出电压比。</p>
+<p>设计一个电源，不仅要它能点亮跑起来，还要安静、效率高和发热小，这才是最好的。从整体上看，传统的PCB虽然只为电源内各个元件提供机械安装固定和电流通路，但是从某些不可见的方向来说，PCB的layout却能对电源的工作状态、EMI和稳定性带来极大的影响。为电源模块画一块独立的PCB，或者将电源作为一个独立的子区域整合进产品的大PCB里面，一定要对电源的工作原理牢记于心。</p>
+<p>今天主要聊一下非隔离式DCDC电源的设计。系统里的开关电源意味着这是一个连续不断的巨大EMI辐射源和热源。因此在动手画PCB以前，一定要double-check：这个电源放在这儿合适吗？系统里面的模拟小信号走线尽可能避开电源吗？元件布局会不会对散热造成影响——比如电解电容和电感在上风位把SMD功率管挡住了、抑或是电解电容放在了功率管旁边玩自杀？电源离用电设备是不是太远了？热设计与EMI分区是在PCB布线前必须考虑的原理性设计，简单点概括就是电源元件的布局设计问题。</p>
+<p>好不容易在PCB的角落挤出一个位子，把关键的元件排布大概理顺以后，这时要面对的是电源PCB分层的问题。对于开关电源来说，在万不得已的情况下，绝对不要只用单面PCB进行布线。双层PCB在EMI、散热与接地上相比单层PCB有着绝对的优势。而如果系统用的是4层以上的PCB，这绝对是更好的，合理的多层PCB布线优化意味着电源可以挑战更高的功率密度、更好的EMI性能并提供更合理的散热设计。</p>
+<p>从PCB设计的角度来看，原理图上需要重点关注开关功率节点（Switching Node）、输出滤波节点、反馈节点三个部分。</p>
+<p>开关功率节点指的是高侧功率管、低侧肖特基二极管与功率电感之间的电路连接节点。在理想的buck电路拓扑中，这个节点的电压波形在0-Vin间与开关管的驱动信号相对应，流经的电流也是以PWM信号的形式出现的。在功率管关断时，电感电流通过肖特基二极管续流。这是buck拓扑PCB电路中对外产生EMI辐射最严重的区域（非常高的dv/dt与di/dt），实际设计中常采用敷铜的方式连接这三个元件，敷铜区域的电流密度在不违反温升要求的前提下，三个元件之间应尽可能紧密排布以减少EMI的辐射面积。在双层板中，开关接点下方一定要使用接地敷铜的方式提供额外的屏蔽。</p>
+<p>开关功率节点指的是高侧功率管、低侧肖特基二极管与功率电感之间的电路连接节点。在理想的buck电路拓扑中，这个节点的电压波形在0-Vin间与开关管的驱动信号相对应，流经的电流也是以PWM信号的形式出现的。在功率管关断时，电感电流通过肖特基二极管续流。这是buck拓扑PCB电路中对外产生EMI辐射最严重的区域（非常高的dv/dt与di/dt），实际设计中常采用敷铜的方式连接这三个元件，敷铜区域的电流密度在不违反温升要求的前提下，三个元件之间应尽可能紧密排布以减少EMI的辐射面积。在双层板中，开关接点下方一定要使用接地敷铜的方式提供额外的屏蔽。</p>
+<p>沿着输出电流的方向继续看，电感的另一端是输出滤波电容。输出电容常采用MLCC与大电解电容并联的设计，这样能够在频率响应曲线和ESR性能间取得较好的平衡。在buck拓扑里，这个与用电设备直接相连的节点的电压是Vo输出电压直流分量与纹波电压Vripple的叠加。当负载加重时，电解电容的ESR会将部分Vripple转化为热量。所以在大电流应用中，输出端电解电容自身发热也是热设计的关注重点之一。而从电流的角度来说，纹波电压从电感通过输出电容回流至功率地，故输出电容在和电感尽量紧密排布的同时，也要注意另一端功率地对电源反馈与小信号部分的干扰问题。</p>
+<p>许多集成开关buck芯片的输出电压都可以通过外设电阻网络来调节获得不同的输出电压。电阻网络需要从电源的输出端，一般是输出电容附近对输出电压进行取样，衰减后再使用内部的比较器与基准电压进行比较，最后生成输出PWM波所需要的误差信号。要提高采样反馈的精度，除了选择优质的元件外，更重要的是电压采样的输入端要尽可能避开开关功率节点这样的强干扰区域，以及尽可能接入干净的参考地。</p>
+<p>谈到地平面的问题，我们都知道所有地平面最终都是要接在一起的。在电路原理图上各个元件之间连接状态是理想的，根本看不出什么问题，而实际的导线必然会存在电阻，因而在大电流接入地平面的过程中使得局部地平面的电压被抬高，在高di/dt的电源应用场合，这会带来严重的地平面跳变（Ground Bounce），甚至在某些割地不当的极端条件下会引发地平面谐振。对于环路补偿和电压采样来说，这种充满噪声的参考地一定要避而远之。所以在PCB设计上，除了采样走线要避开从开关功率节点最下方经过外，在接地上可以和环路补偿和其它小信号电路一道，采用敷铜的方式单独开辟一块接地区域，而输入输出电容、续流肖特基使用另一块接地区域。分割开来的地平面以过孔的形式与另一面的大面积铺铜相连。根据输入电源的位置合理安排过孔，可让功率地和信号地的回流路径不重叠不相交，这样在PCB设计上就达到了一种类似“单点接地”的效果。</p>
+<p>背面大面积铺铜的好处是可以加强散热。许多IC厂商的单片DCDC转换器新品为了提高功率密度使用了更紧凑的QFN封装，芯片背面有非常大的散热焊盘（Thermal Pad）。在散热焊盘的位置放置适当数量和大小的过孔，即可在完成电气连接的同时透过过孔将芯片内部开关管的热量快速传导至背面的大面积敷铜区上。</p>
+<p>PCB上还有一个非常不起眼的设计，就是过孔（via）。将via与插件孔pad混用是新手常见的错误。在开关电源的PCB设计中，在大电流场合和接地场合常常会使用大量的via并联以降低布线的ESL，使用via主要看PCB生产厂家给出的工艺参数。选择最小孔径能够在最小的空间里面尽可能布置多的过孔，但实际上绝对不是越小越好。大量高密度排布的小孔径via会影响PCB生产的良率并给连接处带来很大的应力，而事实上孔径越大，等效导线大小其实也越大，用大一些的via可以适当减少via的数量。这里面存在一个比较微妙的trade-off关系，一般靠调试经验进行取舍。而在多层板的生产过程中，由于PCB间各层需要分别曝光贴合，误差难以避免，via的机械尺寸是需要认真处理的。</p>
+<p>上面的这些是双层板设计中的一些基础知识点，在多层板中也一样适用。</p>
+<p>在消费电子的产品中，DCDC很多时候是作为一个子系统被整合进一块大的PCB中，这时候电源往往就可以横跨4层甚至更多的PCB布线层。多层PCB中能够通过接地屏蔽，将不同性质的走线混夹（sandwiched）在一起而不用像双层板一样左躲右闪。要充分发挥多层PCB优势，首先要搞清楚的是PCB中各层电气属性问题。通常采用的方法是在功率回路和小信号走线间使用接地平面做屏蔽处理。和输出直流电压相接的平面也可以用作屏蔽，上面提到，输出给用电设备的是输出电压直流分量与纹波电压Vripple的叠加，这个平面上的交流分量可能会通过PCB基质容性耦合到其它平面上，但是辐射的噪声并不大而频谱特性又是已知的。用DC平面做屏蔽比接地平面差劲些，但还是堪用的。</p>
+<div align="center"><br><img src="/讨论一下非隔离式DCDC电源的设计/figure.1.png"><br></div>
+
+<p>设计上用于屏蔽的PCB层或敷铜区域若非不得已不能割裂，尤其是当屏蔽</p>
+<p>在一些使用电流作为控制环输入参数的电源应用中，比如一些buck-boost/buck混合工作的控制器，绝大多数的电池充电器和LED电源中，常常用采样电阻来获取输出或电感电流的状态，采样电阻的电压信号走线是需要特别关注的。这种连接方式也常被称为Kelvin Connection，高低侧的引出线需要尽可能保持紧密相连以减少外界EMI的影响。下图的例子中是在大电流宽走线的两端放置半相交的via来作为采样电压信号的引出线，这是一种很好的设计习惯。采样线的宽度和大电流走线相差径庭，直接引出的走线在PCB腐蚀生产过程中容易出现断裂的问题。使用一个过孔作为过渡能够极大地提高连接处的机械强度。</p>
+<div align="center"><br><img src="/讨论一下非隔离式DCDC电源的设计/figure.2.png"><br></div>
+
+
+
+
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/HerveLin" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Herve Lin<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>
