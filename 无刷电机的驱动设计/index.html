@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="1、无刷的电机的驱动当然难点就在如何获取当前转子的位置好换相，所以又分为两种 有感和无感。
+有感就是在电机端盖的部位加装霍尔传感器分别相隔30度或60度。无感就是靠检测悬浮相的感应电动势过零点（后面在细讲）。当然各有各的优缺点，有感在低速方面好，可以频繁启停换相。无感的结构简单成本低，航模上应用居多">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Herve Lin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="无刷电机的驱动设计">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="1、无刷的电机的驱动当然难点就在如何获取当前转子的位置好换相，所以又分为两种 有感和无感。
+有感就是在电机端盖的部位加装霍尔传感器分别相隔30度或60度。无感就是靠检测悬浮相的感应电动势过零点（后面在细讲）。当然各有各的优缺点，有感在低速方面好，可以频繁启停换相。无感的结构简单成本低，航模上应用居多">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Herve&#39;s blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.com/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.com/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>无刷电机的驱动设计 - Herve&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MENU</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>无刷电机的驱动设计</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-05-05
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="1、无刷的电机的驱动"><a href="#1、无刷的电机的驱动" class="headerlink" title="1、无刷的电机的驱动"></a>1、无刷的电机的驱动</h2><p>当然难点就在如何获取当前转子的位置好换相，所以又分为两种 有感和无感。</p>
+<p>有感就是在电机端盖的部位加装霍尔传感器分别相隔30度或60度。<br>无感就是靠检测悬浮相的感应电动势过零点（后面在细讲）。<br>当然各有各的优缺点，有感在低速方面好，可以频繁启停换相。无感的结构简单成本低，航模上应用居多。</p>
+<p>先说有感，电源首先被分成了3个绕组 U V W这个交流电还是有区别的。<br>它只是3个h桥按一定的顺序导通模拟出来的，本质还是直流电。<br>电机靠hall位置按一定顺序换相，转速与电压电流有关。这一点切记，不是换的越快转的越快。（位置决定换相时刻，电压决定转速）一般调速就是调电压，6步pwm方式是目前常用的。当然后续还有foc等更好算法。</p>
+<p>硬件部分网上基本都是成熟的方案。三相H桥，H桥一般有上臂mos和下臂mos组成，如果只是简单的做演示上臂选pmos下臂选nmos控制电路简单直接用单片机的io就可以驱动。但是pmos低内阻的价格高。功率上面很难做大。<br>这也就是为什么基本所有的商业控制器全是nmos的原因。<br>但是上臂用nmos存在一个问题vgs控制电压大于vcc  4v以上才能完全导通。为了简化电路采用了ir公司出的驱动ic，它内部有自举升压电路。外部仅需一个续流的二极管及储能电容即可。</p>
+<h2 id="2、SPWM与PWM"><a href="#2、SPWM与PWM" class="headerlink" title="2、SPWM与PWM"></a>2、SPWM与PWM</h2><p>PWM是脉冲宽度调制也就是具有一定脉冲宽度的连续的方波组成。<br>SPWM是在PWM的基础上用正弦波来调制合成的具有正弦波规律变化的方波。<br>工程实际中应用最多的是正弦PWM法(简称SPWM)，它是在每半个周期内输出若干个宽窄不同的矩形脉冲波，每一矩形波的面积近似对应正弦波各相应每一等份的正弦波形下的面积可用一个与该面积相等的矩形来代替，于是正弦波形所包围的面积可用这N个等幅(Vd)不等宽的矩形脉冲面积之和来等效。各矩形脉冲的宽度自可由理论计算得出，但在实际应用中常由正弦调制波和三角形载波相比较的方式来确定脉宽：因为等腰三角形波的宽度自上向下是线性变化的，所以当它与某一光滑曲线相交时，可得到一组幅值不变而宽度正比于该曲线函数值的矩形脉冲。若使脉冲宽度与正弦函数值成比例，则也可生成SPWM波形。在工程应用中感兴趣的是基波，假定矩形脉冲的幅值Vd恒定，半周期内的脉冲数N也不变，通过理论分析可知，其基波的幅值V1m脉宽δi有线性关系。</p>
+<p>在SPWM输出系统里，程序里面如果不是用查表，而是计算活动SPWM值，一般采用的是泰勒展开式，必须是多次迭代的浮点乘法运算，因此想获得合适精度（int）计算量很大，代码开销也不少，因此采用SIN表，像上面例子，我们只需要200 int存储单元，就代码的总大小来说，也不会不合算。而且，通过同步改变TIM1_ARR 的值和程序SPWM中值，再对sin数据表进行1440和实际数的比例乘除，也可以实现完美的变频控制，而不需要用实时计算sin值来写程序，缺点是载波会随着交流电频率的变化正比而变化，这个在频率变化范围比较小时候，就完全不是什么问题了比如设计30KHZ–20KHZ频率范围作为载波，那么你的变频正弦波范围也就有60–40HZ范围，对于逆变器应该完全够用了。</p>
+<h2 id="3、STM32的PWM互补输出"><a href="#3、STM32的PWM互补输出" class="headerlink" title="3、STM32的PWM互补输出"></a>3、STM32的PWM互补输出</h2><h2 id="4、无感FOC电调在无人机-航模无刷电机上的运用"><a href="#4、无感FOC电调在无人机-航模无刷电机上的运用" class="headerlink" title="4、无感FOC电调在无人机/航模无刷电机上的运用"></a>4、无感FOC电调在无人机/航模无刷电机上的运用</h2><p>采用方波控制算法的电调，让无刷电机真正被引入航模及无人机领域。不过在使用过程中，这种控制算法的劣势也越来越明显。这也让一种早已有之的算法——FOC被引入无刷电调的设计中。</p>
+<h3 id="传统电调的控制方式"><a href="#传统电调的控制方式" class="headerlink" title="传统电调的控制方式"></a>传统电调的控制方式</h3><p>传统电调控制无刷电机内线圈绕组换向，多用六步换向法，控制方式则是方波控制。所谓方波控制，就是上述切换只负责开关电路，绕组的电流只有“通”和“断”两种状态；电调通过控制接通的频率来调节转速，通过控制“通”和“断”的比例来控制平均电流大小。在一个控制周期内，绕组线圈的“通”、“断”比例被称为“占空比”，这种控制称为占空比控制。</p>
+<p>在方波控制方式下，电调只需控制电路的“通”、“断”。这种方法的控制率算法较为简单：电调无需获得电机转子的具体角度值，只需判断感应到的反向电动势是否过零点，过零点后即可执行换向操作。由于存在绕组感抗，因此理想状态下的矩形方波，变成了实际反馈感应到的类似于梯形的波形。</p>
+<h3 id="方波控制的缺陷"><a href="#方波控制的缺陷" class="headerlink" title="方波控制的缺陷"></a>方波控制的缺陷</h3><p>基于前文所述六步换向法、采用方波控制算法的电调，在使用过程中暴露了其固有缺陷，具体表现为以下4点。</p>
+<h4 id="1-驱动电流的峰值较高"><a href="#1-驱动电流的峰值较高" class="headerlink" title="1.驱动电流的峰值较高"></a>1.驱动电流的峰值较高</h4><p>方波控制模式下的电机，电机绕组线圈内的电流只有“通”和“断”两种状态。即使在占空比很小的低功率状态下，电机电流平均值较小，绕组线圈的脉动电流峰值也会很大。由于绕组线圈的电阻发热量与其电流值的平方成正比，因此电机的发热损耗较大。</p>
+<h4 id="2-存在脉动转矩"><a href="#2-存在脉动转矩" class="headerlink" title="2.存在脉动转矩"></a>2.存在脉动转矩</h4><p>如果电调采用方波控制，那么与之相连的电机内部磁场强度和方向实际是跳跃的，由此产生的扭矩自然也是脉动的。在对控制精度要求很高的动力系统中，这种脉动会降低飞行器的稳定性，尤其是依赖扭矩控制航向的多旋翼无人机，会给自动控制带来更多的干扰因素。</p>
+<h4 id="3-震动和噪声较大"><a href="#3-震动和噪声较大" class="headerlink" title="3.震动和噪声较大"></a>3.震动和噪声较大</h4><p>电机内存在脉动扭矩，带来的直观感受是飞行器的震动和噪声较大。这种震动通过电机传递给机身，在影响机身结构疲劳寿命的同时，还会干扰自驾系统的传感器以及任务载荷。更有甚者，若是振动频率与机身结构的共振频率相近，发生耦合现象，会严重影响整机性能和安全性。</p>
+<p>对消费级无人机而言，脉动扭矩带来的噪声会影响用户的使用体验，干扰航拍效果。而某些专门领域的无人机，对低可探测性有要求，较大的噪声会令其更易被发现。</p>
+<h4 id="4-低速和启动性能较差"><a href="#4-低速和启动性能较差" class="headerlink" title="4.低速和启动性能较差"></a>4.低速和启动性能较差</h4><p>在方波控制下，电机依赖感应反电动势来完成过零检测。启动初期，由于没有初始位置参考，因此电调判断零点位置存在困难。直观感受是往往需要抖动几下，电机才开始运转。如果电机和电调匹配不好，或者电调的设置不正确，还可能出现电机原地抖动、发热、无法启动，或急加速时“丢步”、“掉速”等不正常现象。</p>
+<h3 id="磁场导向控制FOC"><a href="#磁场导向控制FOC" class="headerlink" title="磁场导向控制FOC"></a>磁场导向控制FOC</h3><p>随着电调产品的更新换代，一种优于方波控制的理论算法被引入电调控制程序中，那就是FOC（Field-Oriented Control）。</p>
+<p>FOC被称为磁场导向控制，是一种利用变频器（VFD）控制三相交流电机的技术。这种技术通过调整变频器的输出频率、输出电压的大小及相位，来控制电机的输出。其特性是可以单独控制电机中每个绕组线圈的磁场方向和强度，类似他励式直流电机。由于在FOC算法的方程式中，三相交流电机的定子电流通过两个可视化的正交矢量分量来描述，因此这种控制方法又被称为矢量控制（Vector Control）。</p>
+<p>FOC方法可用于控制交流感应电机和直流无刷电机。最开始出现这种控制方法，就是为了提高电机的性能。在FOC控制下，电机不仅能在全速范围内平稳运行，以零速度产生额定扭矩，还具备良好的高速动态性能，如能够做到快速地加速或减速。它并不是什么新近发明的“黑科技”，相关理论在几十年前就已经提出。</p>
+<p>派克变换被誉为20世纪发表的第二重要的电工电子论文，一直被用在同步电机及感应电机的分析及研究中，是了解磁场导向控制最需要知道的概念。这个概念由罗伯特·派克（Robert Park）在1929年提出，可将与电机相关的变系数的微分方程变换为“时不变”系数的微分方程。达姆施塔特工业大学的K. Hasse，以及西门子公司的F. Blaschke分别在1968年和20世纪70年代提出了矢量控制的概念。其中Hasse提的是间接矢量控制，Blaschke提的是直接矢量控制。</p>
+<p>随后布伦瑞克工业大学的维尔纳·莱昂哈德（Werner Leonhard）進一步发展了磁场导向控制技术，使得交流电机驱动器开始有机会取代直流电机驱动器。但是当时微处理器尚未商品化，相较于直流电机驱动器，交流电机驱动器的成本高、架构复杂，且不易维护。加之那时的矢量控制技术需要用到大量传感器、放大器等元件，成本较高，所以无法将其大规模地应用在小型交流电机驱动器中。</p>
+<p>到了20世纪80年代早期，微处理器的商业化开始普及，使用FOC控制技术的障碍变为较高的成本、复杂的结构和较低的可维护性。与直流驱动器相比，FOC控制交流驱动器需要非常多的电子组件，如传感器、放大器等。</p>
+<p>随着微电子技术的发展和进步，尤其是微处理器（即通常说的单片机）和大功率金属-氧化物半导体场效应晶体管（MOSFET）的问世和普及，使采用FOC方案控制设备的尺寸、重量大幅下降，制造成本和能耗也逐年降低。矢量控制除了用在高性能的电机上，也逐渐出现在一些高端家电中，如洗衣机电机、空调冰箱压缩机等。FOC技术用于家电产品，可有效提高性能、降低噪声和能耗。在单片机的控制下，通过采用FOC算法，空调压缩机甚至能以低至数赫兹的频率安静平稳运转。可以预见，随着微处理器计算能力的提高，它在未来很可能会取代单变量的电压-频率（V/F）控制模式。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/HerveLin" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Herve Lin<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>
