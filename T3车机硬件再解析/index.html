@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="T3的这个车机控制板是表哥设计的，后面拷贝了一份副本给我做二次开发。基于T3的基础控制板电路，我做了两个branch，一个是用于LMS主动降噪的ADAU1452，一个是基于SHARC与XMOS开发的矩阵麦克风降噪系统。
+一开始接手过表哥的这个设计，很明显，电源部分设计的很精美，也很复杂，当然他就是做">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Herve Lin">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="T3车机硬件再解析">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="T3的这个车机控制板是表哥设计的，后面拷贝了一份副本给我做二次开发。基于T3的基础控制板电路，我做了两个branch，一个是用于LMS主动降噪的ADAU1452，一个是基于SHARC与XMOS开发的矩阵麦克风降噪系统。
+一开始接手过表哥的这个设计，很明显，电源部分设计的很精美，也很复杂，当然他就是做">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Herve&#39;s blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.com/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.com/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>T3车机硬件再解析 - Herve&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">MENU</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>T3车机硬件再解析</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-06-04
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>T3的这个车机控制板是表哥设计的，后面拷贝了一份副本给我做二次开发。基于T3的基础控制板电路，我做了两个branch，一个是用于LMS主动降噪的ADAU1452，一个是基于SHARC与XMOS开发的矩阵麦克风降噪系统。</p>
+<p>一开始接手过表哥的这个设计，很明显，电源部分设计的很精美，也很复杂，当然他就是做电源系统出身的。所以在这上面我有很多要学习和研究的点，今天就对这块电路，做一个解析。</p>
+<h2 id="1、-外部电源输入："><a href="#1、-外部电源输入：" class="headerlink" title="1、 外部电源输入："></a>1、 外部电源输入：</h2><h3 id="1、蓄电池12V-24V的电源输入，经过车规接头上的保险丝，得到NET-BATT。"><a href="#1、蓄电池12V-24V的电源输入，经过车规接头上的保险丝，得到NET-BATT。" class="headerlink" title="1、蓄电池12V/24V的电源输入，经过车规接头上的保险丝，得到NET:BATT。"></a>1、蓄电池12V/24V的电源输入，经过车规接头上的保险丝，得到NET:BATT。</h3><h3 id="2、BATT过一个220R磁珠得到VCC。"><a href="#2、BATT过一个220R磁珠得到VCC。" class="headerlink" title="2、BATT过一个220R磁珠得到VCC。"></a>2、BATT过一个220R磁珠得到VCC。</h3><h4 id="2-1、VCC通过SY8205组成的BUCK开关电源转换得到-5V系统电压。电流输出能力为3A。"><a href="#2-1、VCC通过SY8205组成的BUCK开关电源转换得到-5V系统电压。电流输出能力为3A。" class="headerlink" title="2.1、VCC通过SY8205组成的BUCK开关电源转换得到+5V系统电压。电流输出能力为3A。"></a>2.1、VCC通过SY8205组成的BUCK开关电源转换得到+5V系统电压。电流输出能力为3A。</h4><h4 id="2-2、-5V在通过一级SY8088组成的BUCK开关电源转换得到-3-3V系统电压。电流输出能力为3A。"><a href="#2-2、-5V在通过一级SY8088组成的BUCK开关电源转换得到-3-3V系统电压。电流输出能力为3A。" class="headerlink" title="2.2、+5V在通过一级SY8088组成的BUCK开关电源转换得到+3.3V系统电压。电流输出能力为3A。"></a>2.2、+5V在通过一级SY8088组成的BUCK开关电源转换得到+3.3V系统电压。电流输出能力为3A。</h4><h4 id="2-3、还有一路VCC通过SY8205得到USB-VBUS供电电压。电流输出能力为3A。"><a href="#2-3、还有一路VCC通过SY8205得到USB-VBUS供电电压。电流输出能力为3A。" class="headerlink" title="2.3、还有一路VCC通过SY8205得到USB VBUS供电电压。电流输出能力为3A。"></a>2.3、还有一路VCC通过SY8205得到USB VBUS供电电压。电流输出能力为3A。</h4><h4 id="2-4、还有一路VCC通过一个线性稳压源ST5333得到VDD-SSR的3-3V，100mA输出能力的常开子供电回路。这里讲一下，VDD-SSR是给电源管理部分进行供电，包括了一块STM8L152R8-这一个MCU管控了以上多路电源的使能。同时MCU也做CAN的收发以及汽车的方向盘部分按键输入逻辑控制。"><a href="#2-4、还有一路VCC通过一个线性稳压源ST5333得到VDD-SSR的3-3V，100mA输出能力的常开子供电回路。这里讲一下，VDD-SSR是给电源管理部分进行供电，包括了一块STM8L152R8-这一个MCU管控了以上多路电源的使能。同时MCU也做CAN的收发以及汽车的方向盘部分按键输入逻辑控制。" class="headerlink" title="2.4、还有一路VCC通过一个线性稳压源ST5333得到VDD_SSR的3.3V，100mA输出能力的常开子供电回路。这里讲一下，VDD_SSR是给电源管理部分进行供电，包括了一块STM8L152R8.这一个MCU管控了以上多路电源的使能。同时MCU也做CAN的收发以及汽车的方向盘部分按键输入逻辑控制。"></a>2.4、还有一路VCC通过一个线性稳压源ST5333得到VDD_SSR的3.3V，100mA输出能力的常开子供电回路。这里讲一下，VDD_SSR是给电源管理部分进行供电，包括了一块STM8L152R8.这一个MCU管控了以上多路电源的使能。同时MCU也做CAN的收发以及汽车的方向盘部分按键输入逻辑控制。</h4><h4 id="2-4、VCC最后一路是产生一对-的13V运放供电电压，在T3里，是通过一个反激开关电源实现的："><a href="#2-4、VCC最后一路是产生一对-的13V运放供电电压，在T3里，是通过一个反激开关电源实现的：" class="headerlink" title="2.4、VCC最后一路是产生一对+-的13V运放供电电压，在T3里，是通过一个反激开关电源实现的："></a>2.4、VCC最后一路是产生一对+-的13V运放供电电压，在T3里，是通过一个反激开关电源实现的：</h4><div align="center"><br><img src="/T3车机硬件再解析/FIGURE.1.T3_AMP_POWER.JPG"><br><em>图一：运放供电系统</em></div>
+
+<p>SI4946是一个双N通道MOSFET IC。<br>UCC2808是一个电流模式推挽PWM控制器。<br>这个反激开关电路有一个缺点，正负13V的输出是由独立的一个反馈控制的，这个反馈采样与+13V，而在+13V的电压轨上，由于有其他DSP芯片，DAC芯片等，它的负载往往比-13V的电压轨高，最终导致了两边电流不平衡，-13V的绝对值电压要高于13V。最终我们的解决办法是分别给两个电压轨都加上线性电压稳压器。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/HerveLin" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 Herve Lin<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+</body>
+
+</html>
